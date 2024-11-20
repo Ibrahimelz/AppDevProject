@@ -54,18 +54,19 @@ namespace Application_Development_Project
             string enteredName = nameTextBox.Text;
             string enteredPassword = passwordTextBox.Text;
 
-            if (enteredName == admin.Name && enteredPassword == admin.Password && loginAtempts >= 0)
+            if (enteredName == admin.Name && enteredPassword == admin.Password && loginAtempts > 0)
             {
                 MainPageForm mainPageForm = new MainPageForm();
                 mainPageForm.Show();
                 this.Hide();
             }
-            else if(loginAtempts > 0)
+            else if(loginAtempts > 1)
             {
-                errorLabel.Text = "Invalid Name or Password ! " + loginAtempts +" Attempts Left";
                 loginAtempts--;
+                errorLabel.Text = "Invalid Name or Password ! " + loginAtempts +" Attempts Left";
             } else
             {
+                loginAtempts--;
                 errorLabel.Text = "Too many Failed Atempts, You are locked out, restart the syetem to try again";
             }
         }

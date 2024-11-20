@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.cs" />
+    <Compile Include="GymMember.cs" />
     <Compile Include="LoginPageForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -117,4 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="tosLabel.Text" xml:space="preserve">
+    <value>Terms Of Service:
+
+-Member Ships have to be paid on a yearly baisis 
+
+-Yearly Membership cost is 120$
+
+-Credit Card Olny
+
+-Members Must be Respectfull At All Times
+
+-No Refunds 
+ 
+-When Membership Expires, Members Must Pay $120 To Get Access To The Gym Again</value>
+  </data>
 </root>

@@ -86,7 +86,7 @@
             this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorLabel.Location = new System.Drawing.Point(138, 160);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(499, 28);
+            this.errorLabel.Size = new System.Drawing.Size(499, 63);
             this.errorLabel.TabIndex = 6;
             // 
             // loginButton
