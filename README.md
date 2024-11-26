@@ -1,1 +1,1 @@
-# Gym Membership Managment System (GMMS)
+# Gym Membership Managment System(GMMS)
