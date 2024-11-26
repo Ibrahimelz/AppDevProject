@@ -24,7 +24,7 @@ namespace Application_Development_Project
             properClose();
             if (File.Exists("Gym Member List.ser"))
             {
-               members = GymMember.LoadGymMembers("Gym Member List.ser");
+                members = GymMember.LoadGymMembers("Gym Member List.ser");
             }
 
             if (File.Exists("ProfitFile.txt"))
@@ -64,22 +64,34 @@ namespace Application_Development_Project
         {
             if (agreeCheckBox.Checked)
             {
-                int id = members.Count;
-                string name = nameTextBox.Text;
-                string phoneNumber = phoneNumberTextBox.Text;
-                string emailAddress = emailAddressTextBox.Text;
-                string address = addressTextBox.Text;
+                MessageBoxButtons messageBoxButtons = MessageBoxButtons.OKCancel;
+                MessageBoxIcon icon = MessageBoxIcon.Question;
+                DialogResult result = MessageBox.Show("Do you confirm the 120$ purchase?", "Confirmation", messageBoxButtons, icon);
+                switch (result)
+                {
+                    case DialogResult.OK:
+                        int id = members.Count;
+                        string name = nameTextBox.Text;
+                        string phoneNumber = phoneNumberTextBox.Text;
+                        string emailAddress = emailAddressTextBox.Text;
+                        string address = addressTextBox.Text;
 
-                GymMember newMember = new GymMember(++id, name, phoneNumber, emailAddress, address);
+                        GymMember newMember = new GymMember(++id, name, phoneNumber, emailAddress, address);
 
-                members.Add(newMember);
+                        members.Add(newMember);
 
-                GymMember.SaveGymMembers(members, "Gym Member List.ser");
-                gymMemberCreateDetails.Text = newMember.ToString();
+                        GymMember.SaveGymMembers(members, "Gym Member List.ser");
+                        gymMemberCreateDetails.Text = newMember.ToString();
 
-                profit += 120;
-                SaveProfit("ProfitFile.txt");
-            } 
+                        profit += 120;
+                        SaveProfit("ProfitFile.txt");
+                        break;
+                    case DialogResult.Cancel:
+                        MainTabControl.SelectedTab = MainTabControl.TabPages["mainFormTabPage"]; //Goes back to loginTab
+                        break;
+                }
+
+            }
             else
             {
                 MessageBox.Show("Client Must Agree to the Terms Of Service");
@@ -94,7 +106,8 @@ namespace Application_Development_Project
         private void viewAllGymMemberTab_Click(object sender, EventArgs e)
         {
             string memberListString = "";
-            for (int i = 0; i < members.Count; i++) {
+            for (int i = 0; i < members.Count; i++)
+            {
                 memberListString += members[i].ToString() + Environment.NewLine + Environment.NewLine;
             }
             gymMemberListTextBox.Text = memberListString;
@@ -113,6 +126,89 @@ namespace Application_Development_Project
             using (StreamReader reader = new StreamReader(filePath))
             {
                 return int.Parse(reader.ReadToEnd());
+            }
+        }
+
+        private void linkLabelTutorial_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabelTutorial.LinkVisited = true;
+            System.Diagnostics.Process.Start("https://www.youtube.com/channel/UCga77LEM3YbINDqkUwdCxpQ");
+        }
+
+        private void gymMemberCreateDetails_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void agreeCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void creditCardNumber_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void creditCardTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addressTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tosLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addressLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void emailAddressTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void emailAddressLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void phoneNumberTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void phoneNumberLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addPicture_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            openFileDialog.Title = "Select a Picture";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                memberPictureBox.Image = Image.FromFile(openFileDialog.FileName);
             }
         }
     }
