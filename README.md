@@ -1,1 +1,1 @@
-# AppDevProject
+# Gym Membership Managment System (GMMS)
