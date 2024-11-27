@@ -64,6 +64,15 @@ namespace Application_Development_Project
             tabToolTip.SetToolTip(loginTabControl, ""); // Clear default tooltip on TabControl itself
             
             loginTabControl.MouseMove += TabControl1_MouseMove;// Add MouseMove event to show tooltips for each tab
+            try
+            {
+                Icon = new Icon(File.ReadAllText(@"../../data/iconpath.txt"));
+            }
+            catch (Exception ex)
+            {
+
+            }
+
         }
 
         private void TabControl1_MouseMove(object sender, MouseEventArgs e)
@@ -110,7 +119,7 @@ namespace Application_Development_Project
 
             if (enteredName == admin.Name && enteredPassword == admin.Password && loginAtempts > 0)
             {
-                MainPageForm mainPageForm = new MainPageForm();
+                MainPageForm mainPageForm = new MainPageForm(Icon);
                 mainPageForm.Show();
                 this.Hide();
             }
@@ -156,7 +165,6 @@ namespace Application_Development_Project
                 resetErrorLabel.Text = "Invalid Phone Number and/or Birth Year";
             }
         }
-
     }
 }
 

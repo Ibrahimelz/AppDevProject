@@ -1,10 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\GMMS\\Application Development Project\\",
+  "WorkspaceRootPath": "C:\\Users\\6243511\\Documents\\GitHub\\GMMS\\Application Development Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|c:\\users\\user\\gmms\\application development project\\application development project\\mainpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|c:\\users\\6243511\\documents\\github\\gmms\\application development project\\application development project\\mainpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|solutionrelative:application development project\\mainpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|c:\\users\\6243511\\documents\\github\\gmms\\application development project\\application development project\\mainpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|solutionrelative:application development project\\mainpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|c:\\users\\6243511\\documents\\github\\gmms\\application development project\\application development project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|solutionrelative:application development project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|c:\\users\\6243511\\documents\\github\\gmms\\application development project\\application development project\\loginpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|solutionrelative:application development project\\loginpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|c:\\users\\6243511\\documents\\github\\gmms\\application development project\\application development project\\loginpageform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|solutionrelative:application development project\\loginpageform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|c:\\users\\6243511\\documents\\github\\gmms\\application development project\\application development project\\loginpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|solutionrelative:application development project\\loginpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,20 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 130,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginPageForm.cs",
+              "DocumentMoniker": "C:\\Users\\6243511\\Documents\\GitHub\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.cs",
+              "RelativeDocumentMoniker": "Application Development Project\\LoginPageForm.cs",
+              "ToolTip": "C:\\Users\\6243511\\Documents\\GitHub\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.cs",
+              "RelativeToolTip": "Application Development Project\\LoginPageForm.cs",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAwwHkAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T14:59:22.759Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LoginPageForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\6243511\\Documents\\GitHub\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.Designer.cs",
+              "RelativeDocumentMoniker": "Application Development Project\\LoginPageForm.Designer.cs",
+              "ToolTip": "C:\\Users\\6243511\\Documents\\GitHub\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.Designer.cs",
+              "RelativeToolTip": "Application Development Project\\LoginPageForm.Designer.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAYwCIAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T15:15:59.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainPageForm.cs",
-              "DocumentMoniker": "C:\\Users\\User\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs",
+              "Title": "MainPageForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\6243511\\Documents\\GitHub\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs",
               "RelativeDocumentMoniker": "Application Development Project\\MainPageForm.cs",
-              "ToolTip": "C:\\Users\\User\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs",
+              "ToolTip": "C:\\Users\\6243511\\Documents\\GitHub\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs [Design]",
+              "RelativeToolTip": "Application Development Project\\MainPageForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T14:22:47.475Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainPageForm.cs",
+              "DocumentMoniker": "C:\\Users\\6243511\\Documents\\GitHub\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs",
+              "RelativeDocumentMoniker": "Application Development Project\\MainPageForm.cs",
+              "ToolTip": "C:\\Users\\6243511\\Documents\\GitHub\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs",
               "RelativeToolTip": "Application Development Project\\MainPageForm.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAQwHwAAAAlAAAAAAAAAA==",
+              "ViewState": "AQIAAMAAAAAAAAAAAAAkwB4AAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T09:44:32.928Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\6243511\\Documents\\GitHub\\GMMS\\Application Development Project\\Application Development Project\\Program.cs",
+              "RelativeDocumentMoniker": "Application Development Project\\Program.cs",
+              "ToolTip": "C:\\Users\\6243511\\Documents\\GitHub\\GMMS\\Application Development Project\\Application Development Project\\Program.cs",
+              "RelativeToolTip": "Application Development Project\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T14:58:18.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoginPageForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\6243511\\Documents\\GitHub\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.cs",
+              "RelativeDocumentMoniker": "Application Development Project\\LoginPageForm.cs",
+              "ToolTip": "C:\\Users\\6243511\\Documents\\GitHub\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.cs [Design]",
+              "RelativeToolTip": "Application Development Project\\LoginPageForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T14:59:07.437Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

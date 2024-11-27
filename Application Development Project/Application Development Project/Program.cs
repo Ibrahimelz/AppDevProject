@@ -17,6 +17,8 @@ namespace Application_Development_Project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginPageForm());
+            //Application.Run(new LoginPageForm());
+
         }
     }
 }
