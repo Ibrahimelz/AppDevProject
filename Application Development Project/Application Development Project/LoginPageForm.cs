@@ -17,9 +17,16 @@ namespace Application_Development_Project
 
         private Admin admin;
         private int loginAtempts;
+        private ToolTip tabToolTip;
         public LoginPageForm()
         {
             InitializeComponent();
+            InitializeTabTooltips();
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(LoginPageForm_KeyDown);
+
+            this.loginPageTab.Text = "&Login"; // Alt+L shortcut
+            this.resetPageTab.Text = "&Reset Password"; // Alt+R shortcut
 
             try
             {
@@ -47,6 +54,53 @@ namespace Application_Development_Project
                 }
             }
 
+        }
+
+        private void InitializeTabTooltips()
+        {
+            tabToolTip = new ToolTip();
+
+            // Set different tooltips for each tab
+            tabToolTip.SetToolTip(loginTabControl, ""); // Clear default tooltip on TabControl itself
+            
+            loginTabControl.MouseMove += TabControl1_MouseMove;// Add MouseMove event to show tooltips for each tab
+        }
+
+        private void TabControl1_MouseMove(object sender, MouseEventArgs e)
+        {
+            for (int i = 0; i < loginTabControl.TabCount; i++) // Determine which tab the mouse is over
+            {
+                Rectangle tabRect = loginTabControl.GetTabRect(i);
+                if (tabRect.Contains(e.Location))
+                {
+                    string toolTipText = "";// Set tooltip text based on the hovered tab index
+                    switch (i)
+                    {
+                        case 0:
+                            toolTipText = "Use name and password to login";
+                            break;
+                        case 1:
+                            toolTipText = "Enter details to reset password";
+                            break;
+                    }
+
+                    
+                    if (tabToolTip.GetToolTip(loginTabControl) != toolTipText) // Show tooltip only if the mouse is over a new tab
+                    {
+                        tabToolTip.SetToolTip(loginTabControl, toolTipText);
+                    }
+                    return; // Exit after finding the correct tab
+                }
+            }
+            tabToolTip.SetToolTip(loginTabControl, "");// Clear tooltip if not over any tab
+        }
+
+        private void LoginPageForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Closes the form
+            }
         }
 
         private void loginButton_Click(object sender, EventArgs e)

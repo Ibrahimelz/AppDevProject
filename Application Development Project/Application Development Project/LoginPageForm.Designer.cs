@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPageForm));
             this.loginTabControl = new System.Windows.Forms.TabControl();
             this.loginPageTab = new System.Windows.Forms.TabPage();
             this.errorLabel = new System.Windows.Forms.Label();
@@ -48,6 +50,7 @@
             this.PhoneNumberLabel = new System.Windows.Forms.Label();
             this.BirthLabel = new System.Windows.Forms.Label();
             this.resetPasswordlabel = new System.Windows.Forms.Label();
+            this.toolTipTab = new System.Windows.Forms.ToolTip(this.components);
             this.loginTabControl.SuspendLayout();
             this.loginPageTab.SuspendLayout();
             this.resetPageTab.SuspendLayout();
@@ -92,7 +95,7 @@
             // loginButton
             // 
             this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginButton.Location = new System.Drawing.Point(24, 152);
+            this.loginButton.Location = new System.Drawing.Point(13, 152);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(99, 45);
             this.loginButton.TabIndex = 5;
@@ -102,7 +105,7 @@
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(132, 108);
+            this.passwordTextBox.Location = new System.Drawing.Point(107, 108);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(353, 22);
             this.passwordTextBox.TabIndex = 4;
@@ -110,7 +113,7 @@
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(132, 57);
+            this.nameTextBox.Location = new System.Drawing.Point(107, 57);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(353, 22);
             this.nameTextBox.TabIndex = 3;
@@ -118,7 +121,7 @@
             // PasswordLabel
             // 
             this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordLabel.Location = new System.Drawing.Point(19, 108);
+            this.PasswordLabel.Location = new System.Drawing.Point(8, 108);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(104, 28);
             this.PasswordLabel.TabIndex = 2;
@@ -127,7 +130,7 @@
             // nameLabel
             // 
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(19, 51);
+            this.nameLabel.Location = new System.Drawing.Point(8, 51);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(74, 28);
             this.nameLabel.TabIndex = 1;
@@ -136,11 +139,11 @@
             // titleLabel
             // 
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(127, 3);
+            this.titleLabel.Location = new System.Drawing.Point(122, 3);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(398, 28);
             this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "Welcome to the Gym Management System login page";
+            this.titleLabel.Text = "Welcome to Gym Membership Managment System";
             // 
             // resetPageTab
             // 
@@ -165,7 +168,7 @@
             // resetErrorLabel
             // 
             this.resetErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetErrorLabel.Location = new System.Drawing.Point(220, 180);
+            this.resetErrorLabel.Location = new System.Drawing.Point(160, 180);
             this.resetErrorLabel.Name = "resetErrorLabel";
             this.resetErrorLabel.Size = new System.Drawing.Size(415, 28);
             this.resetErrorLabel.TabIndex = 13;
@@ -173,7 +176,7 @@
             // changePasswordButton
             // 
             this.changePasswordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changePasswordButton.Location = new System.Drawing.Point(70, 145);
+            this.changePasswordButton.Location = new System.Drawing.Point(10, 145);
             this.changePasswordButton.Name = "changePasswordButton";
             this.changePasswordButton.Size = new System.Drawing.Size(129, 63);
             this.changePasswordButton.TabIndex = 12;
@@ -184,7 +187,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(220, 142);
+            this.label1.Location = new System.Drawing.Point(160, 142);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(358, 28);
             this.label1.TabIndex = 11;
@@ -192,7 +195,7 @@
             // 
             // newPasswordTextBox
             // 
-            this.newPasswordTextBox.Location = new System.Drawing.Point(225, 114);
+            this.newPasswordTextBox.Location = new System.Drawing.Point(140, 114);
             this.newPasswordTextBox.Name = "newPasswordTextBox";
             this.newPasswordTextBox.Size = new System.Drawing.Size(353, 22);
             this.newPasswordTextBox.TabIndex = 10;
@@ -200,7 +203,7 @@
             // newPassLabel
             // 
             this.newPassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newPassLabel.Location = new System.Drawing.Point(63, 114);
+            this.newPassLabel.Location = new System.Drawing.Point(-2, 114);
             this.newPassLabel.Name = "newPassLabel";
             this.newPassLabel.Size = new System.Drawing.Size(165, 28);
             this.newPassLabel.TabIndex = 9;
@@ -208,14 +211,14 @@
             // 
             // phoneNumberTextBox
             // 
-            this.phoneNumberTextBox.Location = new System.Drawing.Point(225, 76);
+            this.phoneNumberTextBox.Location = new System.Drawing.Point(140, 76);
             this.phoneNumberTextBox.Name = "phoneNumberTextBox";
             this.phoneNumberTextBox.Size = new System.Drawing.Size(353, 22);
             this.phoneNumberTextBox.TabIndex = 8;
             // 
             // birthYearTextBox
             // 
-            this.birthYearTextBox.Location = new System.Drawing.Point(225, 34);
+            this.birthYearTextBox.Location = new System.Drawing.Point(140, 34);
             this.birthYearTextBox.Name = "birthYearTextBox";
             this.birthYearTextBox.Size = new System.Drawing.Size(353, 22);
             this.birthYearTextBox.TabIndex = 7;
@@ -223,7 +226,7 @@
             // PhoneNumberLabel
             // 
             this.PhoneNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhoneNumberLabel.Location = new System.Drawing.Point(58, 72);
+            this.PhoneNumberLabel.Location = new System.Drawing.Point(-2, 72);
             this.PhoneNumberLabel.Name = "PhoneNumberLabel";
             this.PhoneNumberLabel.Size = new System.Drawing.Size(170, 28);
             this.PhoneNumberLabel.TabIndex = 6;
@@ -232,7 +235,7 @@
             // BirthLabel
             // 
             this.BirthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BirthLabel.Location = new System.Drawing.Point(63, 28);
+            this.BirthLabel.Location = new System.Drawing.Point(-2, 28);
             this.BirthLabel.Name = "BirthLabel";
             this.BirthLabel.Size = new System.Drawing.Size(136, 28);
             this.BirthLabel.TabIndex = 5;
@@ -241,11 +244,15 @@
             // resetPasswordlabel
             // 
             this.resetPasswordlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetPasswordlabel.Location = new System.Drawing.Point(205, 3);
+            this.resetPasswordlabel.Location = new System.Drawing.Point(235, 3);
             this.resetPasswordlabel.Name = "resetPasswordlabel";
             this.resetPasswordlabel.Size = new System.Drawing.Size(207, 28);
             this.resetPasswordlabel.TabIndex = 1;
             this.resetPasswordlabel.Text = "Reset Password Page";
+            // 
+            // toolTipTab
+            // 
+            this.toolTipTab.AutomaticDelay = 200;
             // 
             // LoginPageForm
             // 
@@ -253,8 +260,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 257);
             this.Controls.Add(this.loginTabControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginPageForm";
-            this.Text = "Gym System Login Page";
+            this.Text = "GMMS Login Page";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginPageForm_KeyDown);
             this.loginTabControl.ResumeLayout(false);
             this.loginPageTab.ResumeLayout(false);
             this.loginPageTab.PerformLayout();
@@ -286,6 +295,7 @@
         private System.Windows.Forms.Label resetErrorLabel;
         private System.Windows.Forms.Button changePasswordButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolTip toolTipTab;
     }
 }
 

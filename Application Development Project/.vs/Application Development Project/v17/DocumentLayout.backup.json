@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\User\\GMMS\\Application Development Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|c:\\users\\user\\gmms\\application development project\\application development project\\mainpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|solutionrelative:application development project\\mainpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|c:\\users\\user\\gmms\\application development project\\application development project\\loginpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|solutionrelative:application development project\\loginpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|c:\\users\\user\\gmms\\application development project\\application development project\\loginpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|solutionrelative:application development project\\loginpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|c:\\users\\user\\gmms\\application development project\\application development project\\mainpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|solutionrelative:application development project\\mainpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|c:\\users\\user\\gmms\\application development project\\application development project\\mainpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|solutionrelative:application development project\\mainpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,57 +21,44 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 130,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainPageForm.cs",
               "DocumentMoniker": "C:\\Users\\User\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs",
               "RelativeDocumentMoniker": "Application Development Project\\MainPageForm.cs",
-              "ToolTip": "C:\\Users\\User\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs",
-              "RelativeToolTip": "Application Development Project\\MainPageForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAeAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\User\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs*",
+              "RelativeToolTip": "Application Development Project\\MainPageForm.cs*",
+              "ViewState": "AgIAAL4AAAAAAAAAAAAgwNgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T18:32:17.797Z",
+              "WhenOpened": "2024-11-27T09:44:32.928Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LoginPageForm.cs",
-              "DocumentMoniker": "C:\\Users\\User\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.cs",
-              "RelativeDocumentMoniker": "Application Development Project\\LoginPageForm.cs",
-              "ToolTip": "C:\\Users\\User\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.cs",
-              "RelativeToolTip": "Application Development Project\\LoginPageForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T18:32:14.514Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "LoginPageForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\User\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.cs",
               "RelativeDocumentMoniker": "Application Development Project\\LoginPageForm.cs",
-              "ToolTip": "C:\\Users\\User\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.cs [Design]",
-              "RelativeToolTip": "Application Development Project\\LoginPageForm.cs [Design]",
+              "ToolTip": "C:\\Users\\User\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.cs [Design]*",
+              "RelativeToolTip": "Application Development Project\\LoginPageForm.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T16:43:25.152Z",
+              "WhenOpened": "2024-11-27T09:34:37.953Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "MainPageForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\User\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs",
               "RelativeDocumentMoniker": "Application Development Project\\MainPageForm.cs",
-              "ToolTip": "C:\\Users\\User\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs [Design]",
-              "RelativeToolTip": "Application Development Project\\MainPageForm.cs [Design]",
+              "ToolTip": "C:\\Users\\User\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs [Design]*",
+              "RelativeToolTip": "Application Development Project\\MainPageForm.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T16:43:16.507Z",
+              "WhenOpened": "2024-11-27T09:23:43.181Z",
               "EditorCaption": " [Design]"
             }
           ]
