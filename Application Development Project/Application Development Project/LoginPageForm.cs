@@ -196,6 +196,11 @@ namespace Application_Development_Project
             timerDateTime.Tick += new EventHandler(timerDateTime_Tick);
             timerDateTime.Start();
         }
+
+        private void titleLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
