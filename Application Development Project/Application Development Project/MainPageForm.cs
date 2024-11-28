@@ -5,10 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Application_Development_Project
@@ -133,27 +136,49 @@ namespace Application_Development_Project
             {
                 admin = new Admin("John", newPasswordTextBox.Text, "2000-04-04", "514-888-9999");
                 Admin.SaveAdmin(admin, "AdminFile.ser");
+                oldPasswordTextBox.Text = "";
+                newPasswordTextBox.Text = "";
             }
             else
             {
-                resetErrorLabel.Text = "Invalid Phone Number and/or Birth Year";
+                resetErrorLabel.Text = "Invalid Password";
+                oldPasswordTextBox.Text = "";
+                newPasswordTextBox.Text = "";
             }
         }
 
         private void ChangeAttemptsLabel_Click(object sender, EventArgs e)
         {
-            using (StreamWriter writer = new StreamWriter("attemptFile.txt"))
+            if (int.TryParse(attemtsTextBox.Text, out int numericAttempts))
             {
-                writer.Write(attemtsTextBox.Text);
+                // Write to the file if the input is numeric
+                using (StreamWriter writer = new StreamWriter("attemptFile.txt"))
+                {
+                    writer.Write(attemtsTextBox.Text);  // Write the numeric value or the original string
+                }
+
+                // Update the error label and clear the textbox
+                errorLabel.Text = "Changed Successfully";
+                attemtsTextBox.Text = "";  // Clear the textbox after writing
             }
-            errorLabel.Text = "Changed Successfully";
-            attemtsTextBox.Text = "";
+            else
+            {
+                errorLabel.Text = "Please enter a valid numeric value.";
+            }
         }
 
         private void createGymMemberButton_Click(object sender, EventArgs e)
         {
             if (agreeCheckBox.Checked)
             {
+                if (string.IsNullOrWhiteSpace(nameTextBox.Text) || string.IsNullOrWhiteSpace(phoneNumberTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(emailAddressTextBox.Text) || string.IsNullOrWhiteSpace(addressTextBox.Text)
+                    || string.IsNullOrWhiteSpace(creditCardTextBox.Text))
+                {
+                    MessageBox.Show("Please fill out all the fields.");
+                    return;
+                }
+
                 MessageBoxButtons messageBoxButtons = MessageBoxButtons.OKCancel;
                 MessageBoxIcon icon = MessageBoxIcon.Question;
                 DialogResult result = MessageBox.Show("Do you confirm the 120$ purchase?", "Confirmation", messageBoxButtons, icon);
@@ -176,10 +201,19 @@ namespace Application_Development_Project
                         profit += 120;
                         SaveProfit("ProfitFile.txt");
                         removeScreenButton.Visible = true;
+                        nameTextBox.Text = "";
+                        phoneNumberTextBox.Text = "";
+                        emailAddressTextBox.Text = "";
+                        addressTextBox.Text = "";
+                        creditCardTextBox.Text = "";
+                        agreeCheckBox.Checked = false;
                         break;
                     case DialogResult.Cancel:
                         MainTabControl.SelectedTab = MainTabControl.TabPages["mainFormTabPage"]; //Goes back to loginTab
                         break;
+
+                        
+
                 }
 
             }
