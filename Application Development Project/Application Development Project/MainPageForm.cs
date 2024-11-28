@@ -28,12 +28,6 @@ namespace Application_Development_Project
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(MainPageForm_KeyDown);
 
-            this.mainFormTabPage.Text = "&Register Member"; // Alt+R shortcut
-            this.viewAllGymMemberTab.Text = "&Members"; // Alt+M shortcut
-            this.SecurityTabPage.Text = "System &Security"; // Alt+S shortcut
-            this.customizeLogoApp.Text = "&Customize"; // Alt+C shortcut
-            this.tutorialTabPage.Text = "&Tutorial"; // Alt+T shortcut
-
             properClose();
             if (File.Exists("Gym Member List.ser"))
             {
@@ -57,7 +51,7 @@ namespace Application_Development_Project
 
             // Set different tooltips for each tab
             tabToolTip.SetToolTip(MainTabControl, ""); // Clear default tooltip on TabControl itself
-            
+
             MainTabControl.MouseMove += TabControl1_MouseMove;// Add MouseMove event to show tooltips for each tab
 
 
@@ -103,7 +97,33 @@ namespace Application_Development_Project
         {
             if (e.KeyCode == Keys.Escape)
             {
-                this.Close(); // Closes the form
+                DialogResult result = MessageBox.Show("Are you sure you want to close the app?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    this.Close(); // Closes the form
+                }
+            }
+            else if (e.Alt) // Check if Alt key is pressed
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.R:
+                        MainTabControl.SelectedTab = mainFormTabPage; // Alt+R goes to Register Member tab
+                        break;
+                    case Keys.M:
+                        MainTabControl.SelectedTab = viewAllGymMemberTab; // Alt+M goes to Members tab
+                        break;
+                    case Keys.S:
+                        MainTabControl.SelectedTab = SecurityTabPage; // Alt+S goes to System Security tab
+                        break;
+                    case Keys.C:
+                        MainTabControl.SelectedTab = customizeLogoApp; // Alt+C goes to Customize tab
+                        break;
+                    case Keys.T:
+                        MainTabControl.SelectedTab = tutorialTabPage; // Alt+T goes to Tutorial tab
+                        break;
+                }
             }
         }
 
@@ -155,6 +175,7 @@ namespace Application_Development_Project
 
                         profit += 120;
                         SaveProfit("ProfitFile.txt");
+                        removeScreenButton.Visible = true;
                         break;
                     case DialogResult.Cancel:
                         MainTabControl.SelectedTab = MainTabControl.TabPages["mainFormTabPage"]; //Goes back to loginTab
@@ -232,6 +253,25 @@ namespace Application_Development_Project
             {
                 MessageBox.Show("Please load an image into the PictureBox first.");
             }
+        }
+
+        private void MainPageForm_Load(object sender, EventArgs e)
+        {
+            timerDateTime.Interval = 100;
+            timerDateTime.Tick += new EventHandler(timerDateTime_Tick);
+            timerDateTime.Start();
+        }
+
+        private void timerDateTime_Tick(object sender, EventArgs e)
+        {
+            labelRegisterDate.Text = DateTime.Now.ToLongDateString();
+            labelRegisterTime.Text = DateTime.Now.ToLongTimeString();
+            labelSystemDate.Text = DateTime.Now.ToLongDateString();
+            labelSystemTime.Text = DateTime.Now.ToLongTimeString();
+            labelCustomizeDate.Text = DateTime.Now.ToLongDateString();
+            labelCustomizeTime.Text = DateTime.Now.ToLongTimeString();
+            labelTutorialDate.Text = DateTime.Now.ToLongDateString();
+            labelTutorialTime.Text = DateTime.Now.ToLongTimeString();
         }
     }
 }

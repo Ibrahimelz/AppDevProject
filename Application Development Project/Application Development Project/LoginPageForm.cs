@@ -25,9 +25,6 @@ namespace Application_Development_Project
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(LoginPageForm_KeyDown);
 
-            this.loginPageTab.Text = "&Login"; // Alt+L shortcut
-            this.resetPageTab.Text = "&Reset Password"; // Alt+R shortcut
-
             try
             {
                 admin = Admin.LoadAdmin("AdminFile.ser");
@@ -55,7 +52,13 @@ namespace Application_Development_Project
             }
 
         }
-
+        private void timerDateTime_Tick(object sender, EventArgs e)
+        {
+            labelLoginDate.Text = DateTime.Now.ToLongDateString();
+            labelLoginTime.Text = DateTime.Now.ToLongTimeString();
+            labelResetPswdDate.Text = DateTime.Now.ToLongDateString();
+            labelResetPswdTime.Text = DateTime.Now.ToLongTimeString();
+        }
         private void InitializeTabTooltips()
         {
             tabToolTip = new ToolTip();
@@ -108,7 +111,24 @@ namespace Application_Development_Project
         {
             if (e.KeyCode == Keys.Escape)
             {
-                this.Close(); // Closes the form
+                DialogResult result = MessageBox.Show("Are you sure you want to close the app?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    this.Close(); // Closes the form
+                }
+            }
+            else if (e.Alt) // Check if Alt key is pressed
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.L:
+                        loginTabControl.SelectedTab = loginPageTab; // Alt+L goes to Login tab
+                        break;
+                    case Keys.R:
+                        loginTabControl.SelectedTab = resetPageTab; // Alt+R goes to Reset Password tab
+                        break;
+                }
             }
         }
 
@@ -164,6 +184,13 @@ namespace Application_Development_Project
             {
                 resetErrorLabel.Text = "Invalid Phone Number and/or Birth Year";
             }
+        }
+
+        private void LoginPageForm_Load(object sender, EventArgs e)
+        {
+            timerDateTime.Interval = 100;
+            timerDateTime.Tick += new EventHandler(timerDateTime_Tick);
+            timerDateTime.Start();
         }
     }
 }
