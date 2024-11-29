@@ -257,6 +257,7 @@ namespace Application_Development_Project
 
         private void MainPageForm_Load(object sender, EventArgs e)
         {
+            AppLanguage.ApplyLanguage(this);
             timerDateTime.Interval = 100;
             timerDateTime.Tick += new EventHandler(timerDateTime_Tick);
             timerDateTime.Start();

@@ -117,11 +117,166 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Strings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Strings.resx;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="loginPageTab" xml:space="preserve">
+    <value>Se connecter</value>
   </data>
-  <data name="Strings_fr_CA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Strings.fr-CA.resx;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="resetPageTab" xml:space="preserve">
+    <value>Réinitialiser le mot de passe</value>
+  </data>
+  <data name="titleLabel" xml:space="preserve">
+    <value>Bienvenue dans GMMS</value>
+  </data>
+  <data name="nameLabel" xml:space="preserve">
+    <value>Nom:</value>
+  </data>
+  <data name="loginButton" xml:space="preserve">
+    <value>Se connecter</value>
+  </data>
+  <data name="resetPasswordlabel" xml:space="preserve">
+    <value>Réinitialiser le mot de passe</value>
+  </data>
+  <data name="BirthLabel" xml:space="preserve">
+    <value>Année de naissance:</value>
+  </data>
+  <data name="phoneNumberLabel" xml:space="preserve">
+    <value>Numéro de téléphone:</value>
+  </data>
+  <data name="newPassLabel" xml:space="preserve">
+    <value>Nouveau mot de passe:</value>
+  </data>
+  <data name="newPassNotifLabel" xml:space="preserve">
+    <value>Si l’opération réussit, l’application redémarrera</value>
+  </data>
+  <data name="mainFormTabPage" xml:space="preserve">
+    <value>Enregistrer un membre</value>
+  </data>
+  <data name="viewAllGymMemberTab" xml:space="preserve">
+    <value>Membres</value>
+  </data>
+  <data name="searchMemberTabPage" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="expirationTabPage" xml:space="preserve">
+    <value>Expirera bientôt</value>
+  </data>
+  <data name="revenueTabPage" xml:space="preserve">
+    <value>Revenu</value>
+  </data>
+  <data name="deactivationReasonTabPage" xml:space="preserve">
+    <value>Raisons d’annulation</value>
+  </data>
+  <data name="SecurityTabPage" xml:space="preserve">
+    <value>Sécurité</value>
+  </data>
+  <data name="customizeLogoApp" xml:space="preserve">
+    <value>Personnaliser</value>
+  </data>
+  <data name="tutorialTabPage" xml:space="preserve">
+    <value>Tutoriel</value>
+  </data>
+  <data name="emailAddressLabel" xml:space="preserve">
+    <value>Adresse e-mail:</value>
+  </data>
+  <data name="addressLabel" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="creditCardNumber" xml:space="preserve">
+    <value>Numéro de carte de crédit:</value>
+  </data>
+  <data name="agreeCheckBox" xml:space="preserve">
+    <value>J’accepte les conditions d’utilisation</value>
+  </data>
+  <data name="tosLabel" xml:space="preserve">
+    <value>Conditions d’utilisation :
+
+ • Les abonnements doivent être payés sur une base annuelle.
+
+ • Le coût de l’abonnement annuel est de 120$.
+
+ • Paiement par carte de crédit uniquement.
+
+ • Les membres doivent faire preuve de respect en tout temps.
+
+ • Aucune remboursement.
+
+ • Lorsque l’abonnement expire, les membres doivent payer 120$ pour retrouver l’accès au gymnase.</value>
+  </data>
+  <data name="createGymMemberButton" xml:space="preserve">
+    <value>Créer un membre</value>
+  </data>
+  <data name="removeScreenButton" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="searchButton" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="renewButton" xml:space="preserve">
+    <value>Renouveler l’abonnement</value>
+  </data>
+  <data name="deactivateMemberButton" xml:space="preserve">
+    <value>Désactiver l’abonnement</value>
+  </data>
+  <data name="reactivateMemberButton" xml:space="preserve">
+    <value>Réactiver l’abonnement</value>
+  </data>
+  <data name="totalRevenueLabel" xml:space="preserve">
+    <value>Revenu total</value>
+  </data>
+  <data name="belowTargetLabel" xml:space="preserve">
+    <value>En dessous de l’objectif</value>
+  </data>
+  <data name="onTargetLabel" xml:space="preserve">
+    <value>Dans l’objectif</value>
+  </data>
+  <data name="aboveTargetLabel" xml:space="preserve">
+    <value>Au-dessus de l’objectif</value>
+  </data>
+  <data name="deactivationReasonLabel" xml:space="preserve">
+    <value>Raisons de désactivation</value>
+  </data>
+  <data name="AttemptsLabel" xml:space="preserve">
+    <value>Nouveau nombre d’essais autorisés</value>
+  </data>
+  <data name="changeAttemptsButton" xml:space="preserve">
+    <value>Tentatives de modification</value>
+  </data>
+  <data name="oldPassLabel" xml:space="preserve">
+    <value>Mot de passe actuel:</value>
+  </data>
+  <data name="changePasswordButton" xml:space="preserve">
+    <value>Changer le mot de passe</value>
+  </data>
+  <data name="instructionLabel" xml:space="preserve">
+    <value>Le nouveau mot de passe du système sera appliqué lors de la prochaine connexion</value>
+  </data>
+  <data name="changeIconImageLabel" xml:space="preserve">
+    <value>Choisissez une nouvelle image d’icône pour GMMS *doit être au format .ico*</value>
+  </data>
+  <data name="loadPicture" xml:space="preserve">
+    <value>Charger l’image</value>
+  </data>
+  <data name="buttonToIcon" xml:space="preserve">
+    <value>Ajouter comme icône</value>
+  </data>
+  <data name="pleaseWatchLabel" xml:space="preserve">
+    <value>Veuillez regarder le tutoriel suivant pour vous familiariser avec l’application</value>
+  </data>
+  <data name="linkLabelTutorial" xml:space="preserve">
+    <value>Cliquez sur ce lien</value>
+  </data>
+  <data name="languageLabel" xml:space="preserve">
+    <value>Langue:</value>
+  </data>
+  <data name="renewButton2" xml:space="preserve">
+    <value>Renouveler l’abonnement</value>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>Mot de Passe:</value>
+  </data>
+  <data name="phoneNumberLabel2" xml:space="preserve">
+    <value>Numéro de téléphone:</value>
+  </data>
+  <data name="changeAttemptsButton2" xml:space="preserve">
+    <value>Tentatives de modification</value>
   </data>
 </root>

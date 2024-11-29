@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|c:\\users\\tarek rafea\\desktop\\appdev\\gmms\\application development project\\application development project\\mainpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\application development project\\mainpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|solutionrelative:application development project\\mainpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\application development project\\loginpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|solutionrelative:application development project\\loginpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\application development project\\loginpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|solutionrelative:application development project\\loginpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|c:\\users\\tarek rafea\\desktop\\appdev\\gmms\\application development project\\application development project\\applanguage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|solutionrelative:application development project\\applanguage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B51BB356-2A92-423D-9112-800C45499B9A}|Application Development Project\\Application Development Project.csproj|C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\application development project\\mainpageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,19 +30,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 125,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MainPageForm.cs",
-              "DocumentMoniker": "C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs",
-              "RelativeDocumentMoniker": "Application Development Project\\MainPageForm.cs",
-              "ToolTip": "C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs",
-              "RelativeToolTip": "Application Development Project\\MainPageForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAK8AAABCAAAAAAAAAA==",
+              "Title": "LoginPageForm.cs",
+              "DocumentMoniker": "C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.cs",
+              "RelativeDocumentMoniker": "Application Development Project\\LoginPageForm.cs",
+              "ToolTip": "C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.cs",
+              "RelativeToolTip": "Application Development Project\\LoginPageForm.cs",
+              "ViewState": "AgIAALYAAAAAAAAAAAAUwLgAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T15:04:29.784Z",
+              "WhenOpened": "2024-11-29T19:14:18.219Z",
               "EditorCaption": ""
             },
             {
@@ -43,8 +55,8 @@
               "Title": "MainPageForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs",
               "RelativeDocumentMoniker": "Application Development Project\\MainPageForm.cs",
-              "ToolTip": "C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs [Design]",
-              "RelativeToolTip": "Application Development Project\\MainPageForm.cs [Design]",
+              "ToolTip": "C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs [Design]*",
+              "RelativeToolTip": "Application Development Project\\MainPageForm.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-28T15:03:07.25Z",
               "EditorCaption": " [Design]"
@@ -55,10 +67,37 @@
               "Title": "LoginPageForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.cs",
               "RelativeDocumentMoniker": "Application Development Project\\LoginPageForm.cs",
-              "ToolTip": "C:\\Users\\User\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\User\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.cs [Design]",
+              "ToolTip": "C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\Application Development Project\\LoginPageForm.cs [Design]",
+              "RelativeToolTip": "Application Development Project\\LoginPageForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T04:32:45.364Z"
+              "WhenOpened": "2024-11-28T04:32:45.364Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AppLanguage.cs",
+              "DocumentMoniker": "C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\Application Development Project\\AppLanguage.cs",
+              "RelativeDocumentMoniker": "Application Development Project\\AppLanguage.cs",
+              "ToolTip": "C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\Application Development Project\\AppLanguage.cs",
+              "RelativeToolTip": "Application Development Project\\AppLanguage.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAiwD8AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-29T18:50:44.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainPageForm.cs",
+              "DocumentMoniker": "C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs",
+              "RelativeDocumentMoniker": "Application Development Project\\MainPageForm.cs",
+              "ToolTip": "C:\\Users\\Tarek Rafea\\Desktop\\AppDev\\GMMS\\Application Development Project\\Application Development Project\\MainPageForm.cs*",
+              "RelativeToolTip": "Application Development Project\\MainPageForm.cs*",
+              "ViewState": "AgIAAHsBAAAAAAAAAAAUwAgBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T15:04:29.784Z",
+              "EditorCaption": ""
             }
           ]
         }

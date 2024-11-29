@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -52,6 +53,7 @@ namespace Application_Development_Project
             }
 
         }
+
         private void timerDateTime_Tick(object sender, EventArgs e)
         {
             labelLoginDate.Text = DateTime.Now.ToLongDateString();
@@ -188,10 +190,24 @@ namespace Application_Development_Project
 
         private void LoginPageForm_Load(object sender, EventArgs e)
         {
+            languageComboBox.SelectedIndex = 0;
+            AppLanguage.ApplyLanguage(this);
             timerDateTime.Interval = 100;
             timerDateTime.Tick += new EventHandler(timerDateTime_Tick);
             timerDateTime.Start();
         }
+
+        // language comboBox event handler
+        private void languageComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedLang = languageComboBox.SelectedItem.ToString();
+            AppLanguage.CurrentCulture = selectedLang == "English" ? "en-CA" : "fr-CA";
+            AppLanguage.ApplyLanguage(this);
+            Refresh();
+        }
+
+        
+        
     }
 }
 
