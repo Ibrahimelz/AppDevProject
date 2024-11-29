@@ -147,15 +147,11 @@ namespace Application_Development_Project
             {
                 loginAtempts--;
                 errorLabel.Text = "Invalid Name or Password ! " + loginAtempts + " Attempts Left";
-                nameTextBox.Text = "";
-                passwordTextBox.Text = "";
             }
             else
             {
                 loginAtempts--;
                 errorLabel.Text = "Too many Failed Atempts, You are locked out, restart the syetem to try again";
-                nameTextBox.Text = "";
-                passwordTextBox.Text = "";
             }
         }
 
@@ -195,11 +191,6 @@ namespace Application_Development_Project
             timerDateTime.Interval = 100;
             timerDateTime.Tick += new EventHandler(timerDateTime_Tick);
             timerDateTime.Start();
-        }
-
-        private void titleLabel_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
