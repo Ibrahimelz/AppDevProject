@@ -17,9 +17,13 @@ namespace Application_Development_Project
 
         private Admin admin;
         private int loginAtempts;
+        private ToolTip tabToolTip;
         public LoginPageForm()
         {
             InitializeComponent();
+            InitializeTabTooltips();
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(LoginPageForm_KeyDown);
 
             try
             {
@@ -48,6 +52,85 @@ namespace Application_Development_Project
             }
 
         }
+        private void timerDateTime_Tick(object sender, EventArgs e)
+        {
+            labelLoginDate.Text = DateTime.Now.ToLongDateString();
+            labelLoginTime.Text = DateTime.Now.ToLongTimeString();
+            labelResetPswdDate.Text = DateTime.Now.ToLongDateString();
+            labelResetPswdTime.Text = DateTime.Now.ToLongTimeString();
+        }
+        private void InitializeTabTooltips()
+        {
+            tabToolTip = new ToolTip();
+
+            // Set different tooltips for each tab
+            tabToolTip.SetToolTip(loginTabControl, ""); // Clear default tooltip on TabControl itself
+            
+            loginTabControl.MouseMove += TabControl1_MouseMove;// Add MouseMove event to show tooltips for each tab
+            try
+            {
+                Icon = new Icon(File.ReadAllText(@"../../data/iconpath.txt"));
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
+
+        private void TabControl1_MouseMove(object sender, MouseEventArgs e)
+        {
+            for (int i = 0; i < loginTabControl.TabCount; i++) // Determine which tab the mouse is over
+            {
+                Rectangle tabRect = loginTabControl.GetTabRect(i);
+                if (tabRect.Contains(e.Location))
+                {
+                    string toolTipText = "";// Set tooltip text based on the hovered tab index
+                    switch (i)
+                    {
+                        case 0:
+                            toolTipText = "Use name and password to login";
+                            break;
+                        case 1:
+                            toolTipText = "Enter details to reset password";
+                            break;
+                    }
+
+                    
+                    if (tabToolTip.GetToolTip(loginTabControl) != toolTipText) // Show tooltip only if the mouse is over a new tab
+                    {
+                        tabToolTip.SetToolTip(loginTabControl, toolTipText);
+                    }
+                    return; // Exit after finding the correct tab
+                }
+            }
+            tabToolTip.SetToolTip(loginTabControl, "");// Clear tooltip if not over any tab
+        }
+
+        private void LoginPageForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to close the app?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    this.Close(); // Closes the form
+                }
+            }
+            else if (e.Alt) // Check if Alt key is pressed
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.L:
+                        loginTabControl.SelectedTab = loginPageTab; // Alt+L goes to Login tab
+                        break;
+                    case Keys.R:
+                        loginTabControl.SelectedTab = resetPageTab; // Alt+R goes to Reset Password tab
+                        break;
+                }
+            }
+        }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
@@ -56,7 +139,7 @@ namespace Application_Development_Project
 
             if (enteredName == admin.Name && enteredPassword == admin.Password && loginAtempts > 0)
             {
-                MainPageForm mainPageForm = new MainPageForm();
+                MainPageForm mainPageForm = new MainPageForm(Icon);
                 mainPageForm.Show();
                 this.Hide();
             }
@@ -64,11 +147,15 @@ namespace Application_Development_Project
             {
                 loginAtempts--;
                 errorLabel.Text = "Invalid Name or Password ! " + loginAtempts + " Attempts Left";
+                nameTextBox.Text = "";
+                passwordTextBox.Text = "";
             }
             else
             {
                 loginAtempts--;
                 errorLabel.Text = "Too many Failed Atempts, You are locked out, restart the syetem to try again";
+                nameTextBox.Text = "";
+                passwordTextBox.Text = "";
             }
         }
 
@@ -103,6 +190,17 @@ namespace Application_Development_Project
             }
         }
 
+        private void LoginPageForm_Load(object sender, EventArgs e)
+        {
+            timerDateTime.Interval = 100;
+            timerDateTime.Tick += new EventHandler(timerDateTime_Tick);
+            timerDateTime.Start();
+        }
+
+        private void titleLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

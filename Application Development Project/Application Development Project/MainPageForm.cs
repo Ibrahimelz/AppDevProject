@@ -5,10 +5,14 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Application_Development_Project
 {
@@ -18,9 +22,15 @@ namespace Application_Development_Project
         private int loginAtempts;
         private List<GymMember> members = new List<GymMember>();
         private int profit = 0;
-        public MainPageForm()
+        private ToolTip tabToolTip; // Declare ToolTip object
+        private string fileName;
+        public MainPageForm(Icon icon)
         {
             InitializeComponent();
+            InitializeTabTooltips();
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(MainPageForm_KeyDown);
+
             properClose();
             if (File.Exists("Gym Member List.ser"))
             {
@@ -35,6 +45,89 @@ namespace Application_Development_Project
             {
                 SaveProfit("ProfitFile.txt");
             }
+            Icon = icon;
+        }
+
+        private void InitializeTabTooltips()
+        {
+            tabToolTip = new ToolTip();
+
+            // Set different tooltips for each tab
+            tabToolTip.SetToolTip(MainTabControl, ""); // Clear default tooltip on TabControl itself
+
+            MainTabControl.MouseMove += TabControl1_MouseMove;// Add MouseMove event to show tooltips for each tab
+
+
+        }
+
+        private void TabControl1_MouseMove(object sender, MouseEventArgs e)
+        {
+            for (int i = 0; i < MainTabControl.TabCount; i++)// Determine which tab the mouse is over
+            {
+                Rectangle tabRect = MainTabControl.GetTabRect(i);
+                if (tabRect.Contains(e.Location))
+                {
+                    string toolTipText = "";// Set tooltip text based on the hovered tab index
+                    switch (i)
+                    {
+                        case 0:
+                            toolTipText = "Put in member info and purchase membership";
+                            break;
+                        case 1:
+                            toolTipText = "Displays all gym members in the system";
+                            break;
+                        case 2:
+                            toolTipText = "Customize system robusteness";
+                            break;
+                        case 3:
+                            toolTipText = "Change the logo of the app";
+                            break;
+                        case 4:
+                            toolTipText = "Video tutorial to learn to use app";
+                            break;
+                    }
+                    if (tabToolTip.GetToolTip(MainTabControl) != toolTipText)// Show tooltip only if the mouse is over a new tab
+                    {
+                        tabToolTip.SetToolTip(MainTabControl, toolTipText);
+                    }
+                    return; // Exit after finding the correct tab
+                }
+            }
+            tabToolTip.SetToolTip(MainTabControl, "");// Clear tooltip if not over any tab
+        }
+
+        private void MainPageForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to close the app?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    this.Close(); // Closes the form
+                }
+            }
+            else if (e.Alt) // Check if Alt key is pressed
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.R:
+                        MainTabControl.SelectedTab = mainFormTabPage; // Alt+R goes to Register Member tab
+                        break;
+                    case Keys.M:
+                        MainTabControl.SelectedTab = viewAllGymMemberTab; // Alt+M goes to Members tab
+                        break;
+                    case Keys.S:
+                        MainTabControl.SelectedTab = SecurityTabPage; // Alt+S goes to System Security tab
+                        break;
+                    case Keys.C:
+                        MainTabControl.SelectedTab = customizeLogoApp; // Alt+C goes to Customize tab
+                        break;
+                    case Keys.T:
+                        MainTabControl.SelectedTab = tutorialTabPage; // Alt+T goes to Tutorial tab
+                        break;
+                }
+            }
         }
 
         private void changePasswordButton_Click(object sender, EventArgs e)
@@ -43,27 +136,49 @@ namespace Application_Development_Project
             {
                 admin = new Admin("John", newPasswordTextBox.Text, "2000-04-04", "514-888-9999");
                 Admin.SaveAdmin(admin, "AdminFile.ser");
+                oldPasswordTextBox.Text = "";
+                newPasswordTextBox.Text = "";
             }
             else
             {
-                resetErrorLabel.Text = "Invalid Phone Number and/or Birth Year";
+                resetErrorLabel.Text = "Invalid Password";
+                oldPasswordTextBox.Text = "";
+                newPasswordTextBox.Text = "";
             }
         }
 
         private void ChangeAttemptsLabel_Click(object sender, EventArgs e)
         {
-            using (StreamWriter writer = new StreamWriter("attemptFile.txt"))
+            if (int.TryParse(attemtsTextBox.Text, out int numericAttempts))
             {
-                writer.Write(attemtsTextBox.Text);
+                // Write to the file if the input is numeric
+                using (StreamWriter writer = new StreamWriter("attemptFile.txt"))
+                {
+                    writer.Write(attemtsTextBox.Text);  // Write the numeric value or the original string
+                }
+
+                // Update the error label and clear the textbox
+                errorLabel.Text = "Changed Successfully";
+                attemtsTextBox.Text = "";  // Clear the textbox after writing
             }
-            errorLabel.Text = "Changed Successfully";
-            attemtsTextBox.Text = "";
+            else
+            {
+                errorLabel.Text = "Please enter a valid numeric value.";
+            }
         }
 
         private void createGymMemberButton_Click(object sender, EventArgs e)
         {
             if (agreeCheckBox.Checked)
             {
+                if (string.IsNullOrWhiteSpace(nameTextBox.Text) || string.IsNullOrWhiteSpace(phoneNumberTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(emailAddressTextBox.Text) || string.IsNullOrWhiteSpace(addressTextBox.Text)
+                    || string.IsNullOrWhiteSpace(creditCardTextBox.Text))
+                {
+                    MessageBox.Show("Please fill out all the fields.");
+                    return;
+                }
+
                 MessageBoxButtons messageBoxButtons = MessageBoxButtons.OKCancel;
                 MessageBoxIcon icon = MessageBoxIcon.Question;
                 DialogResult result = MessageBox.Show("Do you confirm the 120$ purchase?", "Confirmation", messageBoxButtons, icon);
@@ -85,10 +200,20 @@ namespace Application_Development_Project
 
                         profit += 120;
                         SaveProfit("ProfitFile.txt");
+                        removeScreenButton.Visible = true;
+                        nameTextBox.Text = "";
+                        phoneNumberTextBox.Text = "";
+                        emailAddressTextBox.Text = "";
+                        addressTextBox.Text = "";
+                        creditCardTextBox.Text = "";
+                        agreeCheckBox.Checked = false;
                         break;
                     case DialogResult.Cancel:
                         MainTabControl.SelectedTab = MainTabControl.TabPages["mainFormTabPage"]; //Goes back to loginTab
                         break;
+
+                        
+
                 }
 
             }
@@ -135,81 +260,52 @@ namespace Application_Development_Project
             System.Diagnostics.Process.Start("https://www.youtube.com/channel/UCga77LEM3YbINDqkUwdCxpQ");
         }
 
-        private void gymMemberCreateDetails_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void agreeCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void creditCardNumber_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void creditCardTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addressTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tosLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addressLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void emailAddressTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void emailAddressLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void phoneNumberTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void phoneNumberLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nameLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addPicture_Click(object sender, EventArgs e)
+        private void loadPicture_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            openFileDialog.Filter = "Image Files|*.ico";
             openFileDialog.Title = "Select a Picture";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                memberPictureBox.Image = Image.FromFile(openFileDialog.FileName);
+                fileName = openFileDialog.FileName;
+
+                // write the path into a local file 
+                File.WriteAllText(@"../../data/iconpath.txt", fileName);
+
+                logoPictureBox.Image = System.Drawing.Image.FromFile(fileName);
             }
+        }
+
+        private void buttonToIcon_Click(object sender, EventArgs e)
+        {
+            if (logoPictureBox.Image != null)
+            {
+                Icon = new Icon(fileName);
+            }
+            else
+            {
+                MessageBox.Show("Please load an image into the PictureBox first.");
+            }
+        }
+
+        private void MainPageForm_Load(object sender, EventArgs e)
+        {
+            timerDateTime.Interval = 100;
+            timerDateTime.Tick += new EventHandler(timerDateTime_Tick);
+            timerDateTime.Start();
+        }
+
+        private void timerDateTime_Tick(object sender, EventArgs e)
+        {
+            labelRegisterDate.Text = DateTime.Now.ToLongDateString();
+            labelRegisterTime.Text = DateTime.Now.ToLongTimeString();
+            labelSystemDate.Text = DateTime.Now.ToLongDateString();
+            labelSystemTime.Text = DateTime.Now.ToLongTimeString();
+            labelCustomizeDate.Text = DateTime.Now.ToLongDateString();
+            labelCustomizeTime.Text = DateTime.Now.ToLongTimeString();
+            labelTutorialDate.Text = DateTime.Now.ToLongDateString();
+            labelTutorialTime.Text = DateTime.Now.ToLongTimeString();
         }
     }
 }
