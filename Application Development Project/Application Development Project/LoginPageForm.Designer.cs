@@ -96,18 +96,16 @@
             // labelLoginDate
             // 
             this.labelLoginDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelLoginDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLoginDate.Location = new System.Drawing.Point(393, 0);
+            this.labelLoginDate.Location = new System.Drawing.Point(486, 30);
             this.labelLoginDate.Name = "labelLoginDate";
-            this.labelLoginDate.Size = new System.Drawing.Size(254, 25);
+            this.labelLoginDate.Size = new System.Drawing.Size(154, 25);
             this.labelLoginDate.TabIndex = 8;
             this.labelLoginDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelLoginTime
             // 
             this.labelLoginTime.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelLoginTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLoginTime.Location = new System.Drawing.Point(515, 25);
+            this.labelLoginTime.Location = new System.Drawing.Point(515, 2);
             this.labelLoginTime.Name = "labelLoginTime";
             this.labelLoginTime.Size = new System.Drawing.Size(125, 22);
             this.labelLoginTime.TabIndex = 7;
@@ -138,16 +136,16 @@
             this.passwordTextBox.Location = new System.Drawing.Point(108, 114);
             this.passwordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(329, 22);
+            this.passwordTextBox.Size = new System.Drawing.Size(330, 22);
             this.passwordTextBox.TabIndex = 4;
             this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(108, 69);
+            this.nameTextBox.Location = new System.Drawing.Point(108, 56);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(329, 22);
+            this.nameTextBox.Size = new System.Drawing.Size(330, 22);
             this.nameTextBox.TabIndex = 3;
             // 
             // PasswordLabel
@@ -162,7 +160,7 @@
             // nameLabel
             // 
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(9, 69);
+            this.nameLabel.Location = new System.Drawing.Point(8, 50);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(75, 28);
             this.nameLabel.TabIndex = 1;
@@ -171,13 +169,11 @@
             // titleLabel
             // 
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(90, -16);
+            this.titleLabel.Location = new System.Drawing.Point(109, 2);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(309, 87);
+            this.titleLabel.Size = new System.Drawing.Size(397, 28);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Welcome to Gym Membership Managment System";
-            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.titleLabel.Click += new System.EventHandler(this.titleLabel_Click);
             // 
             // resetPageTab
             // 
@@ -205,18 +201,16 @@
             // labelResetPswdDate
             // 
             this.labelResetPswdDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelResetPswdDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelResetPswdDate.Location = new System.Drawing.Point(401, 2);
+            this.labelResetPswdDate.Location = new System.Drawing.Point(496, 30);
             this.labelResetPswdDate.Name = "labelResetPswdDate";
-            this.labelResetPswdDate.Size = new System.Drawing.Size(233, 25);
+            this.labelResetPswdDate.Size = new System.Drawing.Size(147, 25);
             this.labelResetPswdDate.TabIndex = 15;
             this.labelResetPswdDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelResetPswdTime
             // 
             this.labelResetPswdTime.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelResetPswdTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelResetPswdTime.Location = new System.Drawing.Point(512, 33);
+            this.labelResetPswdTime.Location = new System.Drawing.Point(518, 2);
             this.labelResetPswdTime.Name = "labelResetPswdTime";
             this.labelResetPswdTime.Size = new System.Drawing.Size(125, 22);
             this.labelResetPswdTime.TabIndex = 14;
@@ -256,13 +250,13 @@
             this.newPasswordTextBox.Location = new System.Drawing.Point(164, 113);
             this.newPasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.newPasswordTextBox.Name = "newPasswordTextBox";
-            this.newPasswordTextBox.Size = new System.Drawing.Size(303, 22);
+            this.newPasswordTextBox.Size = new System.Drawing.Size(302, 22);
             this.newPasswordTextBox.TabIndex = 10;
             // 
             // newPassLabel
             // 
             this.newPassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newPassLabel.Location = new System.Drawing.Point(1, 114);
+            this.newPassLabel.Location = new System.Drawing.Point(1, 115);
             this.newPassLabel.Name = "newPassLabel";
             this.newPassLabel.Size = new System.Drawing.Size(143, 28);
             this.newPassLabel.TabIndex = 9;
@@ -274,15 +268,15 @@
             this.phoneNumberTextBox.Location = new System.Drawing.Point(164, 75);
             this.phoneNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.phoneNumberTextBox.Name = "phoneNumberTextBox";
-            this.phoneNumberTextBox.Size = new System.Drawing.Size(303, 22);
+            this.phoneNumberTextBox.Size = new System.Drawing.Size(302, 22);
             this.phoneNumberTextBox.TabIndex = 8;
             // 
             // birthYearTextBox
             // 
-            this.birthYearTextBox.Location = new System.Drawing.Point(163, 39);
+            this.birthYearTextBox.Location = new System.Drawing.Point(164, 33);
             this.birthYearTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.birthYearTextBox.Name = "birthYearTextBox";
-            this.birthYearTextBox.Size = new System.Drawing.Size(303, 22);
+            this.birthYearTextBox.Size = new System.Drawing.Size(302, 22);
             this.birthYearTextBox.TabIndex = 7;
             // 
             // PhoneNumberLabel
@@ -300,7 +294,7 @@
             this.BirthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BirthLabel.Location = new System.Drawing.Point(0, 33);
             this.BirthLabel.Name = "BirthLabel";
-            this.BirthLabel.Size = new System.Drawing.Size(157, 28);
+            this.BirthLabel.Size = new System.Drawing.Size(158, 28);
             this.BirthLabel.TabIndex = 5;
             this.BirthLabel.Text = "Year of Birth: ";
             this.BirthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -308,9 +302,9 @@
             // resetPasswordlabel
             // 
             this.resetPasswordlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetPasswordlabel.Location = new System.Drawing.Point(172, 2);
+            this.resetPasswordlabel.Location = new System.Drawing.Point(235, 2);
             this.resetPasswordlabel.Name = "resetPasswordlabel";
-            this.resetPasswordlabel.Size = new System.Drawing.Size(232, 35);
+            this.resetPasswordlabel.Size = new System.Drawing.Size(207, 28);
             this.resetPasswordlabel.TabIndex = 1;
             this.resetPasswordlabel.Text = "Reset Password Page";
             // 

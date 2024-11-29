@@ -5,13 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net.Mail;
-using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Application_Development_Project
@@ -136,49 +133,27 @@ namespace Application_Development_Project
             {
                 admin = new Admin("John", newPasswordTextBox.Text, "2000-04-04", "514-888-9999");
                 Admin.SaveAdmin(admin, "AdminFile.ser");
-                oldPasswordTextBox.Text = "";
-                newPasswordTextBox.Text = "";
             }
             else
             {
-                resetErrorLabel.Text = "Invalid Password";
-                oldPasswordTextBox.Text = "";
-                newPasswordTextBox.Text = "";
+                resetErrorLabel.Text = "Invalid Phone Number and/or Birth Year";
             }
         }
 
         private void ChangeAttemptsLabel_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(attemtsTextBox.Text, out int numericAttempts))
+            using (StreamWriter writer = new StreamWriter("attemptFile.txt"))
             {
-                // Write to the file if the input is numeric
-                using (StreamWriter writer = new StreamWriter("attemptFile.txt"))
-                {
-                    writer.Write(attemtsTextBox.Text);  // Write the numeric value or the original string
-                }
-
-                // Update the error label and clear the textbox
-                errorLabel.Text = "Changed Successfully";
-                attemtsTextBox.Text = "";  // Clear the textbox after writing
+                writer.Write(attemtsTextBox.Text);
             }
-            else
-            {
-                errorLabel.Text = "Please enter a valid numeric value.";
-            }
+            errorLabel.Text = "Changed Successfully";
+            attemtsTextBox.Text = "";
         }
 
         private void createGymMemberButton_Click(object sender, EventArgs e)
         {
             if (agreeCheckBox.Checked)
             {
-                if (string.IsNullOrWhiteSpace(nameTextBox.Text) || string.IsNullOrWhiteSpace(phoneNumberTextBox.Text) ||
-                    string.IsNullOrWhiteSpace(emailAddressTextBox.Text) || string.IsNullOrWhiteSpace(addressTextBox.Text)
-                    || string.IsNullOrWhiteSpace(creditCardTextBox.Text))
-                {
-                    MessageBox.Show("Please fill out all the fields.");
-                    return;
-                }
-
                 MessageBoxButtons messageBoxButtons = MessageBoxButtons.OKCancel;
                 MessageBoxIcon icon = MessageBoxIcon.Question;
                 DialogResult result = MessageBox.Show("Do you confirm the 120$ purchase?", "Confirmation", messageBoxButtons, icon);
@@ -201,19 +176,10 @@ namespace Application_Development_Project
                         profit += 120;
                         SaveProfit("ProfitFile.txt");
                         removeScreenButton.Visible = true;
-                        nameTextBox.Text = "";
-                        phoneNumberTextBox.Text = "";
-                        emailAddressTextBox.Text = "";
-                        addressTextBox.Text = "";
-                        creditCardTextBox.Text = "";
-                        agreeCheckBox.Checked = false;
                         break;
                     case DialogResult.Cancel:
                         MainTabControl.SelectedTab = MainTabControl.TabPages["mainFormTabPage"]; //Goes back to loginTab
                         break;
-
-                        
-
                 }
 
             }
@@ -306,6 +272,149 @@ namespace Application_Development_Project
             labelCustomizeTime.Text = DateTime.Now.ToLongTimeString();
             labelTutorialDate.Text = DateTime.Now.ToLongDateString();
             labelTutorialTime.Text = DateTime.Now.ToLongTimeString();
+            labelRevenueDate.Text = DateTime.Now.ToLongDateString();
+            labelRevenueTime.Text = DateTime.Now.ToLongTimeString();
+            labelExpiringDate.Text = DateTime.Now.ToLongDateString();
+            labelExpiringTime.Text = DateTime.Now.ToLongTimeString();
+            labelDeactivationDate.Text = DateTime.Now.ToLongDateString();
+            labelDeactivationTime.Text = DateTime.Now.ToLongTimeString();
+            labelLookupDate.Text = DateTime.Now.ToLongDateString();
+            labelLookupTime.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        // searchButton event handler
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            searchResultListBox.Items.Clear();
+            if (int.TryParse(searchTextBox.Text, out int searchID))
+            {
+                GymMember member = members.Find(m => m.Id == searchID);
+
+                if (member != null)
+                {
+                    searchResultListBox.Items.Add(member);
+                }
+                else
+                {
+                    MessageBox.Show("Member not found!");
+                }
+            }
+            else {
+                MessageBox.Show("Please enter a valid ID");
+            }
+        }
+
+        // Renew Button in Expiring Soon tab, event handler
+        private void renewButton_Click(object sender, EventArgs e)
+        {
+            if (expiringMembersListBox.SelectedItem is GymMember member) 
+            {
+                member.RenewMembership("Gym Member List.ser", members);
+                MessageBox.Show($"Membership renewed unlil {member.ExpiringDate:yyyy-MM-dd}.");
+                expiringMembersListBox.Items.Remove(member);
+            }
+        }
+
+        // Renew Button in Lookup Tab, event handler
+        private void renewButton2_Click(object sender, EventArgs e)
+        {
+            if (searchResultListBox.SelectedItem is GymMember member)
+            {
+                if (member.IsExpiringSoon())
+                {
+                    member.RenewMembership("Gym Member List.ser", members);
+                    MessageBox.Show($"Membership renewed unlil {member.ExpiringDate:yyyy-MM-dd}.");
+                    searchResultListBox.Items.Remove(member);
+                    searchResultListBox.Items.Add(member);
+                }
+                else
+                {
+                    MessageBox.Show("Membership is not expiring soon. Cannot renew Membership at this time");
+                }
+            }
+        }
+        private void ExpirationTabPage_Enter(object sender, EventArgs e)
+        {
+            expiringMembersListBox.Items.Clear();
+            foreach (var member in members)
+            {
+                if (member.IsExpiringSoon())
+                {
+                    expiringMembersListBox.Items.Add(member);
+                }
+            }
+        }
+
+        // Deactivate button event handler
+        private void deactivateMemberButton_Click(object sender, EventArgs e)
+        {
+            if (searchResultListBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a member before performing this action.");
+                return;
+            }
+            else if (searchResultListBox.SelectedItem is GymMember member)
+            {
+                string reason = member.PromptForReason("Enter the reason for deactivating this member");
+                if (!string.IsNullOrWhiteSpace(reason))
+                {
+                    member.DeactivateMembership(reason, "Gym Member List.ser", members);
+                    searchResultListBox.Items.Remove(member);
+                    searchResultListBox.Items.Add(member);
+                }
+                else
+                {
+                    MessageBox.Show("Deactivation reason cannot be empty");
+                }
+
+            }
+        }
+
+        // Reactivate button event handler
+        private void reactivateMemberButton_Click(object sender, EventArgs e)
+        {
+            if (searchResultListBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a member before performing this action.");
+                return;
+            }
+            else if (searchResultListBox.SelectedItem is GymMember member)
+            {
+                member.ReactivateMembership("Gym Member List.ser", members);
+                searchResultListBox.Items.Remove(member);
+                searchResultListBox.Items.Add(member);
+            }
+        }
+
+        private void deactivationReasonTabPage_Enter(object sender, EventArgs e)
+        {
+            deactivationReasonsRichTextBox.Clear();
+            foreach (var member in members)
+            {
+                if (!member.IsActiveMembership && !string.IsNullOrEmpty(member.DeactivationReason))
+                {
+                    deactivationReasonsRichTextBox.AppendText($"{member.Id} - {member.Name} - {member.DeactivationReason}\n\n");
+                }
+            }
+        }
+
+        private void revenueTabPage_Enter(object sender, EventArgs e)
+        {
+            int profit = LoadProfit("ProfitFile.txt");
+            profitLabel.Text = profit.ToString("C");
+            if (profit > 0 && profit <= 1000)
+            {
+                profitLabel.BackColor = Color.Red;
+            }
+            else if (profit > 1000 && profit <= 3000)
+            {
+                profitLabel.BackColor = Color.Yellow;
+            }
+            else
+            {
+                profitLabel.BackColor= Color.Green;
+            }
+            
         }
     }
 }
