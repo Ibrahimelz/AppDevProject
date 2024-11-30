@@ -100,13 +100,13 @@
             // languageLabel
             // 
             this.languageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.languageLabel.Location = new System.Drawing.Point(766, 226);
+            this.languageLabel.Location = new System.Drawing.Point(776, 229);
             this.languageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.languageLabel.Name = "languageLabel";
             this.languageLabel.Size = new System.Drawing.Size(176, 44);
             this.languageLabel.TabIndex = 10;
             this.languageLabel.Text = "Language:";
-            this.languageLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.languageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // languageComboBox
             // 
@@ -152,14 +152,15 @@
             // 
             // loginButton
             // 
-            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginButton.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.Location = new System.Drawing.Point(20, 250);
             this.loginButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(224, 72);
             this.loginButton.TabIndex = 5;
             this.loginButton.Text = "Login";
-            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // passwordTextBox

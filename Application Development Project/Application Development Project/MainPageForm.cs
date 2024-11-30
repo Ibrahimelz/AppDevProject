@@ -310,10 +310,24 @@ namespace Application_Development_Project
         {
             if (expiringMembersListBox.SelectedItem is GymMember member) 
             {
-                member.RenewMembership("Gym Member List.ser", members);
-                MessageBox.Show($"Membership renewed unlil {member.ExpiringDate:yyyy-MM-dd}.");
-                expiringMembersListBox.Items.Remove(member);
-            }
+                MessageBoxButtons messageBoxButtons = MessageBoxButtons.OKCancel;
+                MessageBoxIcon icon = MessageBoxIcon.Question;
+                DialogResult result = MessageBox.Show("Do you confirm the 120$ purchase?", "Confirmation", messageBoxButtons, icon);
+                switch (result)
+                {
+                    case DialogResult.OK:
+                        member.RenewMembership("Gym Member List.ser", members);
+                        expiringMembersListBox.Items.Remove(member);
+                        profit += 120;
+                        SaveProfit("ProfitFile.txt");
+                        removeScreenButton.Visible = true;
+                        MessageBox.Show($"Membership renewed unlil {member.ExpiringDate:yyyy-MM-dd}.");
+                        break;
+                    case DialogResult.Cancel:
+                        break;
+                }
+
+                }
         }
 
         // Renew Button in Lookup Tab, event handler
@@ -323,10 +337,24 @@ namespace Application_Development_Project
             {
                 if (member.IsExpiringSoon())
                 {
-                    member.RenewMembership("Gym Member List.ser", members);
-                    MessageBox.Show($"Membership renewed unlil {member.ExpiringDate:yyyy-MM-dd}.");
-                    searchResultListBox.Items.Remove(member);
-                    searchResultListBox.Items.Add(member);
+
+                    MessageBoxButtons messageBoxButtons = MessageBoxButtons.OKCancel;
+                    MessageBoxIcon icon = MessageBoxIcon.Question;
+                    DialogResult result = MessageBox.Show("Do you confirm the 120$ purchase?", "Confirmation", messageBoxButtons, icon);
+                    switch (result)
+                    {
+                        case DialogResult.OK:
+                            member.RenewMembership("Gym Member List.ser", members);
+                            profit += 120;
+                            SaveProfit("ProfitFile.txt");
+                            searchResultListBox.Items.Remove(member);
+                            searchResultListBox.Items.Add(member);
+                            removeScreenButton.Visible = true;
+                            MessageBox.Show($"Membership renewed unlil {member.ExpiringDate:yyyy-MM-dd}.");
+                            break ;
+                        case DialogResult.Cancel:
+                            break;
+                    }
                 }
                 else
                 {
