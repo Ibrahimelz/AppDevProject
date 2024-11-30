@@ -34,6 +34,15 @@ namespace Application_Development_Project
 
         private static void LocalizeForm(Form form)
         {
+
+            string formTitleKey = form.Tag?.ToString() ?? form.Name;
+            string localizedTitle = ResourceManager.GetString(formTitleKey, Thread.CurrentThread.CurrentUICulture);
+
+            if (!string.IsNullOrEmpty(localizedTitle))
+            {
+                form.Text = localizedTitle;
+            }
+
             foreach (Control control in form.Controls)
             {
                 LocalizeControl(control);
@@ -57,6 +66,7 @@ namespace Application_Development_Project
 
             if (!string.IsNullOrEmpty(localizedText))
             {
+                
                 switch (control)
                 {
                     case LinkLabel linkLabel:

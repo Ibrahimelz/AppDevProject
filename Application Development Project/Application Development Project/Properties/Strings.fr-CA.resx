@@ -279,4 +279,13 @@
   <data name="changeAttemptsButton2" xml:space="preserve">
     <value>Tentatives de modification</value>
   </data>
+  <data name="MainPageForm" xml:space="preserve">
+    <value>Page principale GMMS</value>
+  </data>
+  <data name="LoginPageForm" xml:space="preserve">
+    <value>Page de connexion GMMS</value>
+  </data>
+  <data name="enterMemberIdLabel" xml:space="preserve">
+    <value>Entrez l’ID du membre:</value>
+  </data>
 </root>

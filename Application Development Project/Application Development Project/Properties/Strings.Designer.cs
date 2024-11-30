@@ -223,6 +223,15 @@ namespace Application_Development_Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter Member ID:.
+        /// </summary>
+        internal static string enterMemberIdLabel {
+            get {
+                return ResourceManager.GetString("enterMemberIdLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Expiring Soon.
         /// </summary>
         internal static string expirationTabPage {
@@ -277,6 +286,15 @@ namespace Application_Development_Project.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GMMS Login Page.
+        /// </summary>
+        internal static string LoginPageForm {
+            get {
+                return ResourceManager.GetString("LoginPageForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         internal static string loginPageTab {
@@ -291,6 +309,15 @@ namespace Application_Development_Project.Properties {
         internal static string mainFormTabPage {
             get {
                 return ResourceManager.GetString("mainFormTabPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GMMS Main Page.
+        /// </summary>
+        internal static string MainPageForm {
+            get {
+                return ResourceManager.GetString("MainPageForm", resourceCulture);
             }
         }
         

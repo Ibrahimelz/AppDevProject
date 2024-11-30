@@ -122,6 +122,7 @@ namespace Application_Development_Project
             this.pleaseWatchLabel = new System.Windows.Forms.Label();
             this.toolTipHover = new System.Windows.Forms.ToolTip(this.components);
             this.timerDateTime = new System.Windows.Forms.Timer(this.components);
+            this.enterMemberIdLabel = new System.Windows.Forms.Label();
             this.MainTabControl.SuspendLayout();
             this.mainFormTabPage.SuspendLayout();
             this.viewAllGymMemberTab.SuspendLayout();
@@ -359,6 +360,7 @@ namespace Application_Development_Project
             // createGymMemberButton
             // 
             this.createGymMemberButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.createGymMemberButton.BackColor = System.Drawing.Color.PaleTurquoise;
             this.createGymMemberButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createGymMemberButton.Location = new System.Drawing.Point(12, 628);
             this.createGymMemberButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -366,7 +368,7 @@ namespace Application_Development_Project
             this.createGymMemberButton.Size = new System.Drawing.Size(336, 81);
             this.createGymMemberButton.TabIndex = 0;
             this.createGymMemberButton.Text = "Create Gym Member";
-            this.createGymMemberButton.UseVisualStyleBackColor = true;
+            this.createGymMemberButton.UseVisualStyleBackColor = false;
             this.createGymMemberButton.Click += new System.EventHandler(this.createGymMemberButton_Click);
             // 
             // viewAllGymMemberTab
@@ -395,6 +397,7 @@ namespace Application_Development_Project
             // 
             // searchMemberTabPage
             // 
+            this.searchMemberTabPage.Controls.Add(this.enterMemberIdLabel);
             this.searchMemberTabPage.Controls.Add(this.labelLookupDate);
             this.searchMemberTabPage.Controls.Add(this.labelLookupTime);
             this.searchMemberTabPage.Controls.Add(this.reactivateMemberButton);
@@ -477,7 +480,7 @@ namespace Application_Development_Project
             // searchButton
             // 
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(293, 21);
+            this.searchButton.Location = new System.Drawing.Point(551, 65);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(216, 53);
             this.searchButton.TabIndex = 1;
@@ -488,7 +491,7 @@ namespace Application_Development_Project
             // searchTextBox
             // 
             this.searchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox.Location = new System.Drawing.Point(21, 29);
+            this.searchTextBox.Location = new System.Drawing.Point(305, 73);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(228, 38);
             this.searchTextBox.TabIndex = 0;
@@ -1010,6 +1013,16 @@ namespace Application_Development_Project
             // 
             this.toolTipHover.AutomaticDelay = 200;
             // 
+            // enterMemberIdLabel
+            // 
+            this.enterMemberIdLabel.AutoSize = true;
+            this.enterMemberIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enterMemberIdLabel.Location = new System.Drawing.Point(16, 79);
+            this.enterMemberIdLabel.Name = "enterMemberIdLabel";
+            this.enterMemberIdLabel.Size = new System.Drawing.Size(201, 29);
+            this.enterMemberIdLabel.TabIndex = 19;
+            this.enterMemberIdLabel.Text = "Enter Member ID:";
+            // 
             // MainPageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -1125,5 +1138,6 @@ namespace Application_Development_Project
         private Label labelDeactivationTime;
         private Label labelRevenueDate;
         private Label labelRevenueTime;
+        private Label enterMemberIdLabel;
     }
 }
