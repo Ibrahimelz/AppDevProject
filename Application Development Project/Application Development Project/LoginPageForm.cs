@@ -150,6 +150,15 @@ namespace Application_Development_Project
             string enteredName = nameTextBox.Text; // Get entered username
             string enteredPassword = passwordTextBox.Text; // Get entered password
 
+            //checks if the textboxes are null or empty and dose not do function if they are 
+            if (string.IsNullOrWhiteSpace(enteredName)|| string.IsNullOrWhiteSpace(enteredPassword))
+            {
+                errorLabel.Text = (AppLanguage.CurrentCulture.Equals("fr-CA")) ?
+                    "Les zones de texte sont vides !" :
+                    "The text boxes are empty!";
+                return;
+            }
+
             // Check if entered credentials are valid
             if (enteredName == admin.Name && enteredPassword == admin.Password && loginAtempts > 0)
             {
@@ -180,6 +189,15 @@ namespace Application_Development_Project
         {
             string enteredBirthYear = birthYearTextBox.Text; // Get entered birth year
             string enteredPhone = phoneNumberTextBox.Text; // Get entered phone number
+            
+            //checks if the textboxes are null or empty and dose not do function if they are 
+            if (string.IsNullOrWhiteSpace(enteredBirthYear) || string.IsNullOrWhiteSpace(enteredPhone) || string.IsNullOrWhiteSpace(passwordTextBox.Text))
+            {
+                resetErrorLabel.Text = (AppLanguage.CurrentCulture.Equals("fr-CA")) ?
+                    "Les zones de texte sont vides !" :
+                    "The text boxes are empty!";
+                return;
+            }
 
             // Check if entered phone number and birth year match admin's details
             if (enteredPhone == admin.PhoneNumber && enteredBirthYear == admin.Birthday.Substring(0, 4))

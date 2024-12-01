@@ -150,11 +150,11 @@ namespace Application_Development_Project
                         case 8:
                             if (AppLanguage.CurrentCulture.Equals("en-CA"))
                             {
-                                toolTipText = "Video tutorial to learn to use the app";
+                                toolTipText = "tutorial to learn to use the app";
                             }
                             else if (AppLanguage.CurrentCulture.Equals("fr-CA"))
                             {
-                                toolTipText = "Tutoriel vidéo pour apprendre à utiliser l'application";
+                                toolTipText = "Tutoriel pour apprendre à utiliser l'application";
                             }
                             break;
                     }
@@ -176,8 +176,8 @@ namespace Application_Development_Project
             {
                 // Show confirmation dialog in appropriate language
                 DialogResult result = (AppLanguage.CurrentCulture.Equals("fr-CA")) ?
-                    MessageBox.Show("Are you sure you want to close the app?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) :
-                    MessageBox.Show("Êtes-vous sûr de vouloir fermer l’application ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    MessageBox.Show("Êtes-vous sûr de vouloir fermer l’application ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) :
+                    MessageBox.Show("Are you sure you want to close the app?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
@@ -211,6 +211,15 @@ namespace Application_Development_Project
         // Handles password change event
         private void changePasswordButton_Click(object sender, EventArgs e)
         {
+            // Check if the text box is empty
+            if (string.IsNullOrEmpty(oldPasswordTextBox.Text) || string.IsNullOrWhiteSpace(newPasswordTextBox.Text))
+            {
+                resetErrorLabel.Text = (AppLanguage.CurrentCulture.Equals("fr-CA")) ?
+                    "Les zones de texte sont vides !" :
+                    "The text boxes are empty!";
+                return;
+            }
+
             // Check if the old password matches the admin's password
             if (oldPasswordTextBox.Text == admin.Password)
             {
@@ -221,32 +230,74 @@ namespace Application_Development_Project
             else
             {
                 // Show error message if old password is incorrect
-                resetErrorLabel.Text = "Invalid Phone Number and/or Birth Year";
+                resetErrorLabel.Text = (AppLanguage.CurrentCulture.Equals("fr-CA")) ?
+                    "Numéro de téléphone et/ou année de naissance invalides" :
+                    "Invalid Phone Number and/ or Birth Year";
+                    
             }
         }
 
         // Handles changing attempts count
         private void ChangeAttemptsLabel_Click(object sender, EventArgs e)
         {
+            // Check if the text box is empty
+            if (string.IsNullOrEmpty(attemtsTextBox.Text))
+            {
+                errorLabel.Text = (AppLanguage.CurrentCulture.Equals("fr-CA")) ?
+                    "La boîte de texte est vide !" :
+                    "The text box is empty!";
+                return;
+            }
+
+            // Check if the value is numeric
+            if (!int.TryParse(attemtsTextBox.Text, out int numericValue)) // checks if value is numeric
+            {
+                errorLabel.Text = (AppLanguage.CurrentCulture.Equals("fr-CA")) ?
+                    "Veuillez entrer une valeur numérique valide !" :
+                    "Please enter a valid numeric value!";
+                return;
+            }
+
             // Write new attempts count to file
             using (StreamWriter writer = new StreamWriter("attemptFile.txt"))
             {
                 writer.Write(attemtsTextBox.Text);
             }
-            errorLabel.Text = "Changed Successfully"; // Show success message
+            // Show success message
+            errorLabel.Text = (AppLanguage.CurrentCulture.Equals("fr-CA")) ?
+                    "Modifié avec succès" :
+                    "Changed Successfully";
             attemtsTextBox.Text = ""; // Clear text box
         }
 
         // Handles creating a gym member
         private void createGymMemberButton_Click(object sender, EventArgs e)
         {
+            // Ensure all textboxes are filled
+            if (string.IsNullOrWhiteSpace(nameTextBox.Text) ||
+                string.IsNullOrWhiteSpace(phoneNumberTextBox.Text) ||
+                string.IsNullOrWhiteSpace(emailAddressTextBox.Text) ||
+                string.IsNullOrWhiteSpace(addressTextBox.Text) ||
+                string.IsNullOrWhiteSpace(creditCardTextBox.Text))
+            {
+                MessageBox.Show(
+                    AppLanguage.CurrentCulture.Equals("fr-CA") ?
+                    "Veuillez remplir tous les champs obligatoires." :
+                    "Please fill in all required fields.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
             if (agreeCheckBox.Checked) // Check if terms of service are agreed
             {
                 // Show purchase confirmation dialog in appropriate language
                 MessageBoxButtons messageBoxButtons = MessageBoxButtons.OKCancel;
                 MessageBoxIcon icon = MessageBoxIcon.Question;
                 DialogResult result = (AppLanguage.CurrentCulture.Equals("fr-CA")) ?
-                    MessageBox.Show("Do you confirm the 120$ purchase?", "Confirmation", messageBoxButtons, icon) :
+                    MessageBox.Show("Confirmez-vous l'achat de 120$?", "Confirmation", messageBoxButtons, icon) :
                     MessageBox.Show("Do you confirm the 120$ purchase?", "Confirmation", messageBoxButtons, icon);
 
                 switch (result)
@@ -267,6 +318,11 @@ namespace Application_Development_Project
                         profit += 120; // Update profit
                         SaveProfit("ProfitFile.txt");
                         removeScreenButton.Visible = true; // Show remove button
+                        nameTextBox.Text = "";
+                        phoneNumberTextBox.Text = "";
+                        emailAddressTextBox.Text = "";
+                        addressTextBox.Text = "";
+                        creditCardTextBox.Text = "";
                         break;
                     case DialogResult.Cancel:
                         MainTabControl.SelectedTab = MainTabControl.TabPages["mainFormTabPage"]; // Go back to login tab
@@ -360,7 +416,11 @@ namespace Application_Development_Project
             }
             else
             {
-                MessageBox.Show("Please load an image into the PictureBox first.");  // Display an error message if no image is loaded.
+                string message = (AppLanguage.CurrentCulture.Equals("fr-CA")) ?
+                                 "Veuillez d'abord charger une image dans le PictureBox." :
+                                 "Please load an image into the PictureBox first.";  // Choose the message based on the language.
+
+                MessageBox.Show(message);  // Display the message.
             }
         }
 

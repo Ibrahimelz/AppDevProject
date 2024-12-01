@@ -50,3 +50,7 @@ C:\Users\User\GMMS\Application Development Project\Application Development Proje
 C:\Users\User\GMMS\Application Development Project\Application Development Project\obj\Debug\Application_Development_Project.Properties.Strings.resources
 C:\Users\User\GMMS\Application Development Project\Application Development Project\obj\Debug\Application_Development_Project.Properties.Strings.fr-CA.resources
 C:\Users\User\GMMS\Application Development Project\Application Development Project\obj\Debug\fr-CA\Application Development Project.resources.dll
+C:\Users\verou\OneDrive\Documents\NetBeansProjects\ProgramingProject\AppDevProject\Application Development Project\Application Development Project\bin\Debug\fr-CA\Application Development Project.resources.dll
+C:\Users\verou\OneDrive\Documents\NetBeansProjects\ProgramingProject\AppDevProject\Application Development Project\Application Development Project\obj\Debug\Application_Development_Project.Properties.Strings.resources
+C:\Users\verou\OneDrive\Documents\NetBeansProjects\ProgramingProject\AppDevProject\Application Development Project\Application Development Project\obj\Debug\Application_Development_Project.Properties.Strings.fr-CA.resources
+C:\Users\verou\OneDrive\Documents\NetBeansProjects\ProgramingProject\AppDevProject\Application Development Project\Application Development Project\obj\Debug\fr-CA\Application Development Project.resources.dll
