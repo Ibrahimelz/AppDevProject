@@ -97,7 +97,8 @@ namespace Application_Development_Project
         {
             if (e.KeyCode == Keys.Escape)
             {
-                DialogResult result = MessageBox.Show("Are you sure you want to close the app?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = (AppLanguage.CurrentCulture.Equals("fr-CA")) ? MessageBox.Show("Are you sure you want to close the app?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) :
+                                                                                    MessageBox.Show("Êtes-vous sûr de vouloir fermer l’application ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
@@ -156,7 +157,8 @@ namespace Application_Development_Project
             {
                 MessageBoxButtons messageBoxButtons = MessageBoxButtons.OKCancel;
                 MessageBoxIcon icon = MessageBoxIcon.Question;
-                DialogResult result = MessageBox.Show("Do you confirm the 120$ purchase?", "Confirmation", messageBoxButtons, icon);
+                DialogResult result = (AppLanguage.CurrentCulture.Equals("fr-CA")) ? MessageBox.Show("Do you confirm the 120$ purchase?", "Confirmation", messageBoxButtons, icon) : 
+                    MessageBox.Show("Do you confirm the 120$ purchase?", "Confirmation", messageBoxButtons, icon);
                 switch (result)
                 {
                     case DialogResult.OK:
@@ -185,7 +187,15 @@ namespace Application_Development_Project
             }
             else
             {
-                MessageBox.Show("Client Must Agree to the Terms Of Service");
+                if (AppLanguage.CurrentCulture.Equals("en-CA"))
+                {
+                    MessageBox.Show("Client Must Agree to the Terms Of Service");
+                }
+                else
+                {
+                    MessageBox.Show("Le client doit accepter les conditions d’utilisation");
+                }
+
             }
         }
 
@@ -297,11 +307,26 @@ namespace Application_Development_Project
                 }
                 else
                 {
-                    MessageBox.Show("Member not found!");
+                    if (AppLanguage.CurrentCulture.Equals("fr-CA"))
+                    {
+                        MessageBox.Show("Membre non trouvé");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Member not found!");
+                    }
                 }
             }
             else {
-                MessageBox.Show("Please enter a valid ID");
+                if (AppLanguage.CurrentCulture.Equals("en-CA"))
+                {
+                    MessageBox.Show("Please enter a valid ID");
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez entrer un ID valide.");
+                }
+
             }
         }
 
@@ -312,7 +337,8 @@ namespace Application_Development_Project
             {
                 MessageBoxButtons messageBoxButtons = MessageBoxButtons.OKCancel;
                 MessageBoxIcon icon = MessageBoxIcon.Question;
-                DialogResult result = MessageBox.Show("Do you confirm the 120$ purchase?", "Confirmation", messageBoxButtons, icon);
+                DialogResult result = (AppLanguage.CurrentCulture.Equals("fr-CA")) ? MessageBox.Show("Confirmez-vous l’achat de 120 $ ?", "Confirmation", messageBoxButtons, icon) : 
+                                                                                     MessageBox.Show("Do you confirm the 120$ purchase?", "Confirmation", messageBoxButtons, icon);
                 switch (result)
                 {
                     case DialogResult.OK:
@@ -321,7 +347,14 @@ namespace Application_Development_Project
                         profit += 120;
                         SaveProfit("ProfitFile.txt");
                         removeScreenButton.Visible = true;
-                        MessageBox.Show($"Membership renewed unlil {member.ExpiringDate:yyyy-MM-dd}.");
+                        if (AppLanguage.CurrentCulture.Equals("fr-CA"))
+                        {
+                            MessageBox.Show($"Abonnement renouvelé jusqu’à {member.ExpiringDate:yyyy-MM-dd}.");
+                            }
+                        else
+                        {
+                            MessageBox.Show($"Membership renewed unlil {member.ExpiringDate:yyyy-MM-dd}.");
+                            }
                         break;
                     case DialogResult.Cancel:
                         break;
@@ -340,7 +373,8 @@ namespace Application_Development_Project
 
                     MessageBoxButtons messageBoxButtons = MessageBoxButtons.OKCancel;
                     MessageBoxIcon icon = MessageBoxIcon.Question;
-                    DialogResult result = MessageBox.Show("Do you confirm the 120$ purchase?", "Confirmation", messageBoxButtons, icon);
+                    DialogResult result = (AppLanguage.CurrentCulture.Equals("fr-CA")) ? MessageBox.Show("Confirmez-vous l’achat de 120 $ ?", "Confirmation", messageBoxButtons, icon) : 
+                                                                                         MessageBox.Show("Do you confirm the 120$ purchase?", "Confirmation", messageBoxButtons, icon);
                     switch (result)
                     {
                         case DialogResult.OK:
@@ -350,7 +384,14 @@ namespace Application_Development_Project
                             searchResultListBox.Items.Remove(member);
                             searchResultListBox.Items.Add(member);
                             removeScreenButton.Visible = true;
-                            MessageBox.Show($"Membership renewed unlil {member.ExpiringDate:yyyy-MM-dd}.");
+                            if (AppLanguage.CurrentCulture.Equals("fr-CA"))
+                            {
+                                MessageBox.Show($"Abonnement renouvelé jusqu’à {member.ExpiringDate:yyyy-MM-dd}.");
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Membership renewed unlil {member.ExpiringDate:yyyy-MM-dd}.");
+                            }
                             break ;
                         case DialogResult.Cancel:
                             break;
@@ -358,7 +399,14 @@ namespace Application_Development_Project
                 }
                 else
                 {
-                    MessageBox.Show("Membership is not expiring soon. Cannot renew Membership at this time");
+                    if (AppLanguage.CurrentCulture.Equals("en-CA"))
+                    {
+                        MessageBox.Show("Membership is not expiring soon. Cannot renew Membership at this time");
+                    }
+                    else
+                    {
+                        MessageBox.Show("L’abonnement n’expire pas bientôt. Impossible de renouveler l’abonnement pour le moment.");
+                    }
                 }
             }
         }
@@ -379,12 +427,19 @@ namespace Application_Development_Project
         {
             if (searchResultListBox.SelectedItem == null)
             {
-                MessageBox.Show("Please select a member before performing this action.");
+                if (AppLanguage.CurrentCulture.Equals("fr-CA"))
+                {
+                    MessageBox.Show("Veuillez sélectionner un membre avant d’effectuer cette action.");
+                }
+                else
+                {
+                    MessageBox.Show("Please select a member before performing this action.");
+                }                
                 return;
             }
             else if (searchResultListBox.SelectedItem is GymMember member)
             {
-                string reason = member.PromptForReason("Enter the reason for deactivating this member");
+                string reason = (AppLanguage.CurrentCulture.Equals("fr-CA")) ? member.PromptForReason("Entrez la raison pour désactiver ce membre.") : member.PromptForReason("Enter the reason for deactivating this member");
                 if (!string.IsNullOrWhiteSpace(reason))
                 {
                     member.DeactivateMembership(reason, "Gym Member List.ser", members);
@@ -393,7 +448,15 @@ namespace Application_Development_Project
                 }
                 else
                 {
-                    MessageBox.Show("Deactivation reason cannot be empty");
+                    if (AppLanguage.CurrentCulture.Equals("fr-CA"))
+                    {
+                        MessageBox.Show("La raison de la désactivation ne peut pas être vide.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Deactivation reason cannot be empty");
+                    }
+                    
                 }
 
             }
@@ -404,7 +467,14 @@ namespace Application_Development_Project
         {
             if (searchResultListBox.SelectedItem == null)
             {
-                MessageBox.Show("Please select a member before performing this action.");
+                if (AppLanguage.CurrentCulture.Equals("fr-CA"))
+                {
+                    MessageBox.Show("Veuillez sélectionner un membre avant d’effectuer cette action.");
+                }
+                else
+                {
+                    MessageBox.Show("Please select a member before performing this action.");
+                }
                 return;
             }
             else if (searchResultListBox.SelectedItem is GymMember member)

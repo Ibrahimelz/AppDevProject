@@ -58,7 +58,15 @@ namespace Application_Development_Project
                 }
             }
             else {
-                MessageBox.Show("Cannot renew membership");
+                if (AppLanguage.CurrentCulture.Equals("en-CA"))
+                {
+                    MessageBox.Show("Cannot renew membership");
+                }
+                else
+                {
+                    MessageBox.Show("Impossible de renouveler l’adhésion");
+                }
+
             }
         }
 
@@ -69,12 +77,28 @@ namespace Application_Development_Project
             {
                 IsActiveMembership = false;
                 DeactivationReason = reason;
-                MessageBox.Show($"{this.Name} has been deactivated.");
+                if (AppLanguage.CurrentCulture.Equals("en-CA"))
+                {
+                    MessageBox.Show($"{this.Name} has been deactivated.");
+                }
+                else
+                {
+                    MessageBox.Show($"{this.Name} a été désactivé.");
+                }
+
                 SaveGymMembers(gymMembers, filePath);
             }
             else
             {
-                MessageBox.Show($"{this.Name} membership is Deactivated already!");
+                if (AppLanguage.CurrentCulture.Equals("en-CA"))
+                {
+                    MessageBox.Show($"{this.Name}'s membership is Deactivated already!");
+                }
+                else
+                {
+                    MessageBox.Show($"L’abonnement de {this.Name} est déjà désactivé!");
+                }
+
             }
 
         }
@@ -86,7 +110,7 @@ namespace Application_Development_Project
             {
                 prompt.Width = 400;
                 prompt.Height = 200;
-                prompt.Text = "Deactivation Reason";
+                prompt.Text = (AppLanguage.CurrentCulture.Equals("en-CA")) ? "Deactivation Reason" : "Raison de la désactivation";
 
                 Label textLabel = new Label() { Left = 20, Top = 20, Text = message, Width = 350 };
                 TextBox inputBox = new TextBox() { Left = 20, Top = 50, Width = 350 };
@@ -110,12 +134,26 @@ namespace Application_Development_Project
             {
                 IsActiveMembership = true;
                 DeactivationReason = null;
-                MessageBox.Show($"{this.Name} has been reactivated.");
+                if (AppLanguage.CurrentCulture.Equals("en-CA"))
+                {
+                    MessageBox.Show($"{this.Name} has been Reactivated.");
+                }
+                else
+                {
+                    MessageBox.Show($"{this.Name} a été résactivé.");
+                }
                 SaveGymMembers(gymMembers, filePath);
             }
             else
             {
-                MessageBox.Show($"{this.Name} is an Active member already!");
+                if (AppLanguage.CurrentCulture.Equals("en-CA"))
+                {
+                    MessageBox.Show($"{this.Name} is an Active member already!");
+                }
+                else
+                {
+                    MessageBox.Show($"{this.Name} est déjà un membre actif!");
+                }
             }
         }
 
@@ -139,8 +177,16 @@ namespace Application_Development_Project
 
         public override string ToString()
         {
-            return $"Gym Member: ID: {Id}, Name: {Name}, Phone Number: {PhoneNumber}, Address: {Address}, Email Address: {EmailAddress}, Date Created: {DateCreated:yyyy-MM-dd}, Expiring Date: {ExpiringDate:yyyy-MM-dd}, Active Membership: {(IsActiveMembership ? "Yes" : "No")}" +
+            if (AppLanguage.CurrentCulture.Equals("fr-CA"))
+            {
+                return $"Membre de la Gym: ID: {Id}, Nom: {Name}, Numéro de téléphone: {PhoneNumber}, Addresse: {Address}, Adresse e-mail: {EmailAddress}, Date de création: {DateCreated:yyyy-MM-dd}, Date d’expiration: {ExpiringDate:yyyy-MM-dd}, Abonnement actif: {(IsActiveMembership ? "Oui" : "Non")}" +
+                (IsActiveMembership ? "" : $", Raison de la désactivation: {DeactivationReason}"); ;
+            }
+            else
+            {
+                return $"Gym Member: ID: {Id}, Name: {Name}, Phone Number: {PhoneNumber}, Address: {Address}, Email Address: {EmailAddress}, Date Created: {DateCreated:yyyy-MM-dd}, Expiring Date: {ExpiringDate:yyyy-MM-dd}, Active Membership: {(IsActiveMembership ? "Yes" : "No")}" +
                 (IsActiveMembership ? "" : $", Deactivation Reason: {DeactivationReason}"); ;
+            }
         }
 
     }

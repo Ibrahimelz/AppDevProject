@@ -113,7 +113,8 @@ namespace Application_Development_Project
         {
             if (e.KeyCode == Keys.Escape)
             {
-                DialogResult result = MessageBox.Show("Are you sure you want to close the app?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result =(AppLanguage.CurrentCulture.Equals("en-CA")) ? MessageBox.Show("Are you sure you want to close the app?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question):
+                                                                                    MessageBox.Show("Êtes-vous sûr de vouloir fermer l’application ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
@@ -147,13 +148,30 @@ namespace Application_Development_Project
             }
             else if (loginAtempts > 1)
             {
-                loginAtempts--;
-                errorLabel.Text = "Invalid Name or Password ! " + loginAtempts + " Attempts Left";
+                if (AppLanguage.CurrentCulture.Equals("fr-CA"))
+                {
+                    loginAtempts--;
+                    errorLabel.Text = "Nom ou mot de passe invalide! " + loginAtempts + " tentatives restantes";
+                }
+                else
+                {
+                    loginAtempts--;
+                    errorLabel.Text = "Invalid Name or Password ! " + loginAtempts + " attempts Left";
+                }
+                
             }
             else
             {
-                loginAtempts--;
-                errorLabel.Text = "Too many Failed Atempts, You are locked out, restart the syetem to try again";
+                if (AppLanguage.CurrentCulture.Equals("fr-CA"))
+                {
+                    loginAtempts--;
+                    errorLabel.Text = "Trop de tentatives échouées, vous êtes bloqué. Redémarrez le système pour réessayer.";
+                }
+                else
+                {
+                    loginAtempts--;
+                    errorLabel.Text = "Too many Failed Atempts, You are locked out. Restart the syetem to try again";
+                }               
             }
         }
 
@@ -166,7 +184,8 @@ namespace Application_Development_Project
             {
                 MessageBoxButtons messageBoxButtons = MessageBoxButtons.OKCancel;
                 MessageBoxIcon icon = MessageBoxIcon.Question;
-                DialogResult result = MessageBox.Show("Are you sure you want to proceed with resetting your password?", "Reset Password", messageBoxButtons, icon);
+                DialogResult result = (AppLanguage.CurrentCulture.Equals("fr-CA")) ? MessageBox.Show("Êtes - vous sûr de vouloir réinitialiser votre mot de passe ?", "Réinitialiser le mot de passe", messageBoxButtons, icon) :
+                                                                                     MessageBox.Show("Are you sure you want to proceed with resetting your password?", "Reset Password", messageBoxButtons, icon);
                 switch (result)
                 {
                     case DialogResult.OK:
@@ -184,7 +203,7 @@ namespace Application_Development_Project
             }
             else
             {
-                resetErrorLabel.Text = "Invalid Phone Number and/or Birth Year";
+                resetErrorLabel.Text = (AppLanguage.CurrentCulture.Equals("fr-CA")) ? "Numéro de téléphone et/ou année de naissance invalide" : "Invalid Phone Number and/or Birth Year";
             }
         }
 

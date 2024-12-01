@@ -147,7 +147,7 @@
             this.errorLabel.Location = new System.Drawing.Point(252, 250);
             this.errorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(508, 98);
+            this.errorLabel.Size = new System.Drawing.Size(508, 102);
             this.errorLabel.TabIndex = 6;
             // 
             // loginButton
@@ -256,11 +256,12 @@
             // 
             // resetErrorLabel
             // 
-            this.resetErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetErrorLabel.Location = new System.Drawing.Point(239, 291);
+            this.resetErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.resetErrorLabel.Location = new System.Drawing.Point(239, 253);
             this.resetErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.resetErrorLabel.Name = "resetErrorLabel";
-            this.resetErrorLabel.Size = new System.Drawing.Size(622, 44);
+            this.resetErrorLabel.Size = new System.Drawing.Size(713, 82);
             this.resetErrorLabel.TabIndex = 13;
             // 
             // changePasswordButton
