@@ -226,6 +226,12 @@ namespace Application_Development_Project
                 // Update admin details and save to file
                 admin = new Admin("John", newPasswordTextBox.Text, "2000-04-04", "514-888-9999");
                 Admin.SaveAdmin(admin, "AdminFile.ser");
+                resetErrorLabel.Text = (AppLanguage.CurrentCulture.Equals("fr-CA")) ?
+                    "changé avec succès" :
+                    "successfully changed";
+                newPasswordTextBox.Text = "";
+                oldPasswordTextBox.Text = "";
+                return;
             }
             else
             {
@@ -706,6 +712,13 @@ namespace Application_Development_Project
             {
                 profitLabel.BackColor = Color.Green;  // Green for high profit.
             }
+        }
+
+        //when the user switches tabs removes error meassages from security tab 
+        private void EmptySecurityBoxes(object sender, EventArgs e)
+        {
+            errorLabel.Text = "";
+            resetErrorLabel.Text = "";
         }
     }
 }

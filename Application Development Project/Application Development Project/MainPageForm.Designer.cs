@@ -154,6 +154,7 @@ namespace Application_Development_Project
             this.MainTabControl.SelectedIndex = 0;
             this.MainTabControl.Size = new System.Drawing.Size(821, 496);
             this.MainTabControl.TabIndex = 0;
+            this.MainTabControl.SelectedIndexChanged += new System.EventHandler(this.EmptySecurityBoxes);
             this.MainTabControl.Click += new System.EventHandler(this.viewAllGymMemberTab_Click);
             // 
             // mainFormTabPage
@@ -400,9 +401,9 @@ namespace Application_Development_Project
             this.searchMemberTabPage.Controls.Add(this.searchButton);
             this.searchMemberTabPage.Controls.Add(this.searchTextBox);
             this.searchMemberTabPage.Location = new System.Drawing.Point(4, 25);
-            this.searchMemberTabPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchMemberTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.searchMemberTabPage.Name = "searchMemberTabPage";
-            this.searchMemberTabPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchMemberTabPage.Padding = new System.Windows.Forms.Padding(2);
             this.searchMemberTabPage.Size = new System.Drawing.Size(813, 467);
             this.searchMemberTabPage.TabIndex = 5;
             this.searchMemberTabPage.Text = "Lookup";
@@ -443,7 +444,7 @@ namespace Application_Development_Project
             // 
             this.reactivateMemberButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reactivateMemberButton.Location = new System.Drawing.Point(533, 392);
-            this.reactivateMemberButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reactivateMemberButton.Margin = new System.Windows.Forms.Padding(2);
             this.reactivateMemberButton.Name = "reactivateMemberButton";
             this.reactivateMemberButton.Size = new System.Drawing.Size(263, 40);
             this.reactivateMemberButton.TabIndex = 5;
@@ -455,7 +456,7 @@ namespace Application_Development_Project
             // 
             this.deactivateMemberButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deactivateMemberButton.Location = new System.Drawing.Point(254, 392);
-            this.deactivateMemberButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deactivateMemberButton.Margin = new System.Windows.Forms.Padding(2);
             this.deactivateMemberButton.Name = "deactivateMemberButton";
             this.deactivateMemberButton.Size = new System.Drawing.Size(263, 40);
             this.deactivateMemberButton.TabIndex = 4;
@@ -467,7 +468,7 @@ namespace Application_Development_Project
             // 
             this.renewButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.renewButton2.Location = new System.Drawing.Point(14, 392);
-            this.renewButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.renewButton2.Margin = new System.Windows.Forms.Padding(2);
             this.renewButton2.Name = "renewButton2";
             this.renewButton2.Size = new System.Drawing.Size(215, 40);
             this.renewButton2.TabIndex = 3;
@@ -481,7 +482,7 @@ namespace Application_Development_Project
             this.searchResultListBox.HorizontalScrollbar = true;
             this.searchResultListBox.ItemHeight = 16;
             this.searchResultListBox.Location = new System.Drawing.Point(14, 84);
-            this.searchResultListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchResultListBox.Margin = new System.Windows.Forms.Padding(2);
             this.searchResultListBox.Name = "searchResultListBox";
             this.searchResultListBox.Size = new System.Drawing.Size(784, 276);
             this.searchResultListBox.TabIndex = 2;
@@ -490,7 +491,7 @@ namespace Application_Development_Project
             // 
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchButton.Location = new System.Drawing.Point(367, 42);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(2);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(144, 34);
             this.searchButton.TabIndex = 1;
@@ -502,7 +503,7 @@ namespace Application_Development_Project
             // 
             this.searchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchTextBox.Location = new System.Drawing.Point(203, 47);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(153, 27);
             this.searchTextBox.TabIndex = 0;
@@ -514,9 +515,9 @@ namespace Application_Development_Project
             this.expirationTabPage.Controls.Add(this.renewButton);
             this.expirationTabPage.Controls.Add(this.expiringMembersListBox);
             this.expirationTabPage.Location = new System.Drawing.Point(4, 25);
-            this.expirationTabPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.expirationTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.expirationTabPage.Name = "expirationTabPage";
-            this.expirationTabPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.expirationTabPage.Padding = new System.Windows.Forms.Padding(2);
             this.expirationTabPage.Size = new System.Drawing.Size(813, 467);
             this.expirationTabPage.TabIndex = 6;
             this.expirationTabPage.Text = "Expiring Soon";
@@ -547,7 +548,7 @@ namespace Application_Development_Project
             // 
             this.renewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.renewButton.Location = new System.Drawing.Point(295, 390);
-            this.renewButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.renewButton.Margin = new System.Windows.Forms.Padding(2);
             this.renewButton.Name = "renewButton";
             this.renewButton.Size = new System.Drawing.Size(207, 60);
             this.renewButton.TabIndex = 1;
@@ -561,7 +562,7 @@ namespace Application_Development_Project
             this.expiringMembersListBox.HorizontalScrollbar = true;
             this.expiringMembersListBox.ItemHeight = 16;
             this.expiringMembersListBox.Location = new System.Drawing.Point(19, 68);
-            this.expiringMembersListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.expiringMembersListBox.Margin = new System.Windows.Forms.Padding(2);
             this.expiringMembersListBox.Name = "expiringMembersListBox";
             this.expiringMembersListBox.Size = new System.Drawing.Size(779, 292);
             this.expiringMembersListBox.TabIndex = 0;
@@ -579,9 +580,9 @@ namespace Application_Development_Project
             this.revenueTabPage.Controls.Add(this.redLabel);
             this.revenueTabPage.Controls.Add(this.totalRevenueLabel);
             this.revenueTabPage.Location = new System.Drawing.Point(4, 25);
-            this.revenueTabPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.revenueTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.revenueTabPage.Name = "revenueTabPage";
-            this.revenueTabPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.revenueTabPage.Padding = new System.Windows.Forms.Padding(2);
             this.revenueTabPage.Size = new System.Drawing.Size(813, 467);
             this.revenueTabPage.TabIndex = 8;
             this.revenueTabPage.Text = "Revenue";
@@ -696,9 +697,9 @@ namespace Application_Development_Project
             this.deactivationReasonTabPage.Controls.Add(this.deactivationReasonLabel);
             this.deactivationReasonTabPage.Controls.Add(this.deactivationReasonsRichTextBox);
             this.deactivationReasonTabPage.Location = new System.Drawing.Point(4, 25);
-            this.deactivationReasonTabPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deactivationReasonTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.deactivationReasonTabPage.Name = "deactivationReasonTabPage";
-            this.deactivationReasonTabPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deactivationReasonTabPage.Padding = new System.Windows.Forms.Padding(2);
             this.deactivationReasonTabPage.Size = new System.Drawing.Size(813, 467);
             this.deactivationReasonTabPage.TabIndex = 7;
             this.deactivationReasonTabPage.Text = "Cancel Reason";
@@ -740,7 +741,7 @@ namespace Application_Development_Project
             // 
             this.deactivationReasonsRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.deactivationReasonsRichTextBox.Location = new System.Drawing.Point(5, 93);
-            this.deactivationReasonsRichTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deactivationReasonsRichTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.deactivationReasonsRichTextBox.Name = "deactivationReasonsRichTextBox";
             this.deactivationReasonsRichTextBox.ReadOnly = true;
             this.deactivationReasonsRichTextBox.Size = new System.Drawing.Size(803, 365);
